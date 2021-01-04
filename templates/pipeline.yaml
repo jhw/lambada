@@ -13,12 +13,21 @@ Parameters:
     Type: String
   RepoPAT:
     Type: String
-  BuildSpecLocation:
+  CodeBuildType:
     Type: String
-    Default: templates/buildspec.yaml
+    Default: LINUX_CONTAINER
+  CodeBuildComputeType:
+    Type: String
+    Default: BUILD_GENERAL1_SMALL
   CodeBuildImage:
     Type: String
-    Default: aws/codebuild/standard:2.0
+    Default: aws/codebuild/standard:4.0
+  CodeBuildBuildSpecLocation:
+    Type: String
+    Default: templates/buildspec.yaml
+  CodeBuildPythonVersion:
+    Type: String
+    Default: "3.8"
 Outputs:
   GithubURL:
     Value: !Sub "git@github.com:${RepoOwner}/${RepoName}.git:${RepoBranch}"
@@ -26,7 +35,8 @@ Resources:
   CodeBuildProject:
     Properties:
       Environment:
-        ComputeType: BUILD_GENERAL1_SMALL
+        ComputeType:
+          Ref: CodeBuildComputeType
         EnvironmentVariables:
           - Name: APP_NAME
             Value:
@@ -34,16 +44,20 @@ Resources:
           - Name: STAGING_BUCKET
             Value:
               Ref: StagingBucket
+          - Name: PYTHON_VERSION
+            Value:
+              Ref: CodeBuildPythonVersion
         Image:
           Ref: CodeBuildImage
-        Type: LINUX_CONTAINER
+        Type:
+          Ref: CodeBuildType
       Name:
         Ref: AppName
       ServiceRole: !GetAtt 'CodeBuildRole.Arn'
       Source:
         Type: CODEPIPELINE
         BuildSpec:
-          Ref: BuildSpecLocation
+          Ref: CodeBuildBuildSpecLocation
       Artifacts:
         Type: CODEPIPELINE
         Location:

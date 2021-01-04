@@ -1,0 +1,25 @@
+artifacts:
+  location: wol-deployments
+  overrideArtifactName: true
+  packaging: ZIP
+  path: polyreader/layers
+  type: S3
+environment:
+  computeType: BUILD_GENERAL1_SMALL
+  image: aws/codebuild/standard:4.0
+  type: LINUX_CONTAINER
+name: polyreader-utility-layer-1-0-1-layer
+serviceRole: arn:aws:iam::119552584133:role/polyreader-admin-role
+source:
+  buildspec: "artifacts:\n  base-directory: build\n  files:\n  - '**/*'\n  name: utility-layer-1-0-1.zip\n\
+    phases:\n  install:\n    commands:\n    - mkdir -p build/python\n    - pip install\
+    \ --upgrade pip\n    - pip install --upgrade --target build/python google-cloud-translate==2.0.1\n\
+    \    - pip install --upgrade --target build/python lxml\n    - pip install --upgrade\
+    \ --target build/python pymorphy2==0.8\n    - pip install --upgrade --target build/python\
+    \ pyyaml\n    - pip install --upgrade --target build/python git+https://github.com/jhw/readability@1.0.2\n\
+    \    - pip install --upgrade --target build/python requests\n    runtime-versions:\n\
+    \      python: '3.8'\n  post_build:\n    commands:\n    - 'echo \"google-cloud-translate==2.0.1\n\
+    \n      lxml\n\n      pymorphy2==0.8\n\n      pyyaml\n\n      readability==1.0.2\n\
+    \n      requests\" > build/requirements.txt'\n    - bash -c \"if [ /\"$CODEBUILD_BUILD_SUCCEEDING/\"\
+    \ == /\"0/\" ]; then exit 1; fi\"\nversion: '0.2'\n"
+  type: NO_SOURCE
