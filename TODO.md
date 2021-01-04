@@ -1,17 +1,16 @@
 ### short
 
-- lamdemo project
-
 - boto3 script to list s3 assets w/ prefix
-- boto3 script to show latest codebuild logs
+- boto3 script to show (latest) codebuild logs
 
 - git PAT
+- test
 
 ### medium
 
-- buildspec to run tests
 - buildspec to install python deps
-- capture codebuild error
+- buildspec to run tests
+- capture codebuild errors
 - buildspec to use git tags
 - slack alerts
 - remove managed policies
@@ -20,6 +19,7 @@
 
 ### done
 
+- lamdemo project
 - script to list codebuild builds
 - script to list codebuild projects
 - script to list s3 assets
