@@ -14,7 +14,7 @@ phases:
       - pip3 install --upgrade awscli
   build:
     commands:
-      - zip $ZIPPED_ARTIFACTS $APP_NAME/**
+      - zip $ZIPPED_ARTIFACTS $APP_NAME/** -x "*/__pycache__/*" "*/test.py"
   post-build:
     commands:
       - aws cp $ZIPPED_ARTIFACTS s3://$STAGING_BUCKET/

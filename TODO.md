@@ -1,7 +1,5 @@
 ### short
 
-- buildspec to zip files, ignoring __pycache, *.pyc
-
 - script to list s3 assets
 - script to list codebuild projects
 - script to list codebuild builds
@@ -23,6 +21,7 @@
 
 ### done
 
+- buildspec to zip files, ignoring __pycache, *.pyc
 - buildspec to include commit in artifact name
 - buildspec to push to s3
 - check codebuild artifact options for type CODEPIPELINE
