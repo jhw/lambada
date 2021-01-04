@@ -3,7 +3,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
   AppName:
     Type: String
-  S3Bucket:
+  StagingBucket:
     Type: String
   RepoOwner:
     Type: String
@@ -31,9 +31,9 @@ Resources:
           - Name: APP_NAME
             Value:
               Ref: AppName
-          - Name: S3_BUCKET
+          - Name: STAGING_BUCKET
             Value:
-              Ref: S3Bucket
+              Ref: StagingBucket
         Image:
           Ref: CodeBuildImage
         Type: LINUX_CONTAINER
@@ -47,7 +47,7 @@ Resources:
       Artifacts:
         Type: CODEPIPELINE
         Location:
-          Ref: S3Bucket
+          Ref: StagingBucket
     Type: AWS::CodeBuild::Project
   CodeBuildRole:
     Properties:
@@ -66,7 +66,7 @@ Resources:
     Properties:
       ArtifactStore:
         Location:
-          Ref: S3Bucket
+          Ref: StagingBucket
         Type: S3
       Name:
         Ref: AppName
