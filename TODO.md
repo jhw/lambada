@@ -1,12 +1,10 @@
 ### short
 
-- script to list codebuild builds
-
-- boto script to list s3 assets w/ prefix
-
-- script to show codebuild logs
-
 - lamdemo project
+
+- boto3 script to list s3 assets w/ prefix
+- boto3 script to show latest codebuild logs
+
 - git PAT
 
 ### medium
@@ -22,6 +20,7 @@
 
 ### done
 
+- script to list codebuild builds
 - script to list codebuild projects
 - script to list s3 assets
 - buildspec to zip files, ignoring __pycache, *.pyc
