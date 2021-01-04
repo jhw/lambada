@@ -1,0 +1,1 @@
+A CI pipeline for Lambda projects
