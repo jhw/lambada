@@ -1,20 +1,20 @@
 ### short
 
-- script to list codebuild projects
 - script to list codebuild builds
-- script to show codebuild logs
 
 - boto script to list s3 assets w/ prefix
+
+- script to show codebuild logs
 
 - lamdemo project
 - git PAT
 
 ### medium
 
-- buildspec to use git tags
 - buildspec to run tests
 - buildspec to install python deps
 - capture codebuild error
+- buildspec to use git tags
 - slack alerts
 - remove managed policies
 
@@ -22,6 +22,7 @@
 
 ### done
 
+- script to list codebuild projects
 - script to list s3 assets
 - buildspec to zip files, ignoring __pycache, *.pyc
 - buildspec to include commit in artifact name
