@@ -1,0 +1,21 @@
+---
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - apt-get update
+      - apt-get install python3-pip -y
+      - pip3 install --upgrade pip
+      - pip3 install --upgrade awscli
+      - export PYTHONPATH=.
+  pre_build:
+    commands:
+      - python3 test.py
+  build:
+    commands:
+      - aws cloudformation deploy --stack-name $APP_NAME-$ENV_NAME --template-file aws/stack.yaml --parameter-overrides AppName=$APP_NAME EnvName=$ENV_NAME S3Bucket=$S3_BUCKET $(cat $SECRETS_PROPS) --capabilities CAPABILITY_NAMED_IAM --no-fail-on-empty-changeset
+  post_build:
+    commands:
+      - aws s3 cp --recursive config/ s3://$APP_NAME-$ENV_NAME/

@@ -1,0 +1,126 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  AppName:
+    Type: String
+  S3Bucket:
+    Type: String
+  RepoOwner:
+    Type: String
+  RepoName:
+    Type: String
+  RepoBranch:
+    Type: String
+  RepoPAT:
+    Type: String
+  BuildSpecLocation:
+    Type: String
+    Default: templates/buildspec.yaml
+  CodeBuildImage:
+    Type: String
+    Default: aws/codebuild/standard:2.0
+Outputs:
+  GithubURL:
+    Value: !Sub "git@github.com:${RepoOwner}/${RepoName}.git:${RepoBranch}"
+Resources:
+  CodeBuildProject:
+    Properties:
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        EnvironmentVariables:
+          - Name: APP_NAME
+            Value:
+              Ref: AppName
+          - Name: S3_BUCKET
+            Value:
+              Ref: S3Bucket
+        Image:
+          Ref: CodeBuildImage
+        Type: LINUX_CONTAINER
+      Name:
+        Ref: AppName
+      ServiceRole: !GetAtt 'CodeBuildRole.Arn'
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec:
+          Ref: BuildSpecLocation
+      Artifacts:
+        Type: CODEPIPELINE
+        Location:
+          Ref: S3Bucket
+    Type: AWS::CodeBuild::Project
+  CodeBuildRole:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: codebuild.amazonaws.com
+        Version: '2012-10-17'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+      Path: /
+    Type: AWS::IAM::Role
+  CodePipeline:
+    Properties:
+      ArtifactStore:
+        Location:
+          Ref: S3Bucket
+        Type: S3
+      Name:
+        Ref: AppName
+      RestartExecutionOnUpdate:
+      RoleArn: !GetAtt 'CodePipelineRole.Arn'
+      Stages:
+        - Actions:
+            - ActionTypeId:
+                Category: Source
+                Owner: ThirdParty
+                Provider: GitHub
+                Version: '1'
+              Configuration:
+                Branch:
+                  Ref: RepoBranch
+                OAuthToken:
+                  Ref: RepoPAT
+                Owner:
+                  Ref: RepoOwner
+                PollForSourceChanges: true
+                Repo:
+                  Ref: RepoName
+              Name: SourceStage
+              OutputArtifacts:
+                - Name: src
+              RunOrder: 1
+          Name: GetSource
+        - Actions:
+            - ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: '1'
+              Configuration:
+                ProjectName:
+                  Ref: CodeBuildProject
+              InputArtifacts:
+                - Name: src
+              Name: BuildStage
+              RunOrder: 1
+          Name: Build
+    Type: AWS::CodePipeline::Pipeline
+  CodePipelineRole:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: codepipeline.amazonaws.com
+        Version: '2012-10-17'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess
+        - arn:aws:iam::aws:policy/AWSCodePipelineFullAccess
+      Path: /
+    Type: AWS::IAM::Role
