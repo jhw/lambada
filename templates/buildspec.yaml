@@ -1,9 +1,20 @@
 ---
 version: 0.2
+env:
+  variables:
+    ZIPPED_ARTIFACTS: $APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip
 phases:
   install:
     runtime-versions:
       python: $PYTHON_VERSION
     commands:
+      - apt-get update
+      - apt-get install zip -y
       - pip3 install --upgrade pip
-      - pip3 install --upgrade boto3
+      - pip3 install --upgrade awscli
+  build:
+    commands:
+      - zip $ZIPPED_ARTIFACTS $APP_NAME/**
+  post-build:
+    commands:
+      - aws cp $ZIPPED_ARTIFACTS s3://$STAGING_BUCKET/
