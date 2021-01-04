@@ -1,6 +1,7 @@
 ### short
 
-- boto3 script to show (latest) codebuild logs
+- boto3 script to get latest codebuild status 
+- boto3 script to get codebuild logs
 
 - git PAT
 - test

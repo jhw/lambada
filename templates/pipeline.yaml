@@ -28,9 +28,6 @@ Parameters:
   CodeBuildPythonVersion:
     Type: String
     Default: "3.8"
-Outputs:
-  GithubURL:
-    Value: !Sub "git@github.com:${RepoOwner}/${RepoName}.git:${RepoBranch}"
 Resources:
   CodeBuildProject:
     Properties:
