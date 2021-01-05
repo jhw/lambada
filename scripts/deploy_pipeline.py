@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
-import boto3, os, sys, yaml
+import boto3, json, os, sys, yaml
 
 from botocore.exceptions import ClientError
 
 PipelineTemplate="templates/pipeline.yaml"
 
-def deploy_stack(cf, config, template=PipelineTemplate):
+def deploy_stack(cf, config,
+                 stackfile=PipelineTemplate):
     def stack_exists(cf, stackname):
         stacknames=[stack["StackName"]
                     for stack in cf.describe_stacks()["Stacks"]]
@@ -27,7 +28,7 @@ def deploy_stack(cf, config, template=PipelineTemplate):
     action="update" if stack_exists(cf, stackname) else "create"
     fn=getattr(cf, "%s_stack" % action)
     params=init_params(config)
-    body=open(template).read()
+    body=open(stackfile).read()
     fn(StackName=stackname,
        Parameters=format_params(params),
        TemplateBody=body,

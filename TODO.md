@@ -1,7 +1,15 @@
 ### short
 
-- replace buildspec ref with inline buildspec, as per layers
-  - pass as string
+- hardcode buildspec parameter values and remove environment variables
+
+```
+[Container] 2021/01/05 09:41:48 Phase context status code: YAML_FILE_ERROR Message: mapping values are not allowed in this context at line 0
+```
+
+- text- substiution of buildspec
+
+- logs script can't find buildspec logs
+
 - add parameter for autoredeploy with default value true
 
 - move pipeline.yaml into root and rename as stack.yaml
@@ -31,6 +39,8 @@
 
 ### done
 
+- replace buildspec ref with inline buildspec, as per layers
+  - pass as string
 - script to ping codebuild process
 - An error occurred (ValidationError) when calling the CreateStack operation: [/Resources/CodePipeline/Type/RestartExecutionOnUpdate] 'null' values are not allowed in templates
 - test deployment
