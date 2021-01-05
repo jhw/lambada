@@ -1,6 +1,6 @@
 ### short
 
-- test deployment
+- An error occurred (ValidationError) when calling the CreateStack operation: [/Resources/CodePipeline/Type/RestartExecutionOnUpdate] 'null' values are not allowed in templates
 
 ### medium
 
@@ -18,6 +18,7 @@
 
 ### done
 
+- test deployment
 - complete pipeline deployment
 - script to deploy pipeline
 - script to get codebuild logs
