@@ -1,6 +1,7 @@
 ### short
 
-- script to deploy pipeline
+- complete pipeline deployment
+
 - git PAT
 
 ### medium
@@ -19,6 +20,7 @@
 
 ### done
 
+- script to deploy pipeline
 - script to get codebuild logs
 - config.yaml
 - boto3 script to list s3 assets w/ prefix
