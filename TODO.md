@@ -1,24 +1,16 @@
 ### short
 
-- hardcode buildspec parameter values and remove environment variables
-
-```
-[Container] 2021/01/05 09:41:48 Phase context status code: YAML_FILE_ERROR Message: mapping values are not allowed in this context at line 0
-```
-
-- text- substiution of buildspec
-
-- logs script can't find buildspec logs
-
 - add parameter for autoredeploy with default value true
+- remove commit temporarily
 
-- move pipeline.yaml into root and rename as stack.yaml
-- rename deploy_pipeline.py as deploy_stack.py
-
+- codebuild status pinging script
+- re- check logs script
 - code- generate buildspec
+- move stack.yaml into root
 
 ### medium
 
+- commit messages
 - replace GetAtt
 - start_codebuild_build generating error
 - buildspec to install python deps
@@ -39,6 +31,14 @@
 
 ### done
 
+- hardcode buildspec parameter values and remove environment variables
+- text- substitution of buildspec
+
+```
+[Container] 2021/01/05 09:41:48 Phase context status code: YAML_FILE_ERROR Message: mapping values are not allowed in this context at line 0
+```
+
+- rename deploy_pipeline.py as deploy_stack.py
 - replace buildspec ref with inline buildspec, as per layers
   - pass as string
 - script to ping codebuild process

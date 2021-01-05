@@ -13,6 +13,8 @@ Parameters:
     Type: String
   RepoPAT:
     Type: String
+  CodeBuildBuildSpec:
+    Type: String
   CodeBuildType:
     Type: String
     Default: LINUX_CONTAINER
@@ -37,7 +39,11 @@ Resources:
       ServiceRole: !GetAtt 'CodeBuildRole.Arn'
       Source:
         Type: CODEPIPELINE
-        BuildSpec: 'version: 0.2\nphases:\n  install:\n    runtime-versions:\n      python: 3.8\n    commands:\n      - apt-get update\n      - apt-get install zip -y\n      - pip3 install --upgrade pip\n      - pip3 install --upgrade awscli\n  build:\n    commands:\n      - zip lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip lamdemo/** -x "*/__pycache__/*" "*/test.py"\n  post-build:\n    commands:\n      - aws cp lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip s3://wol-deployments/\n'
+        BuildSpec:
+          Fn::Sub:
+            - "${build_spec}"
+            - build_spec:
+                Ref: CodeBuildBuildSpec  
       Artifacts:
         Type: CODEPIPELINE
         Location:
