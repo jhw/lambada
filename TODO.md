@@ -1,7 +1,5 @@
 ### short
 
-- list_builds.py
-
 ### medium
 
 - custom pip test deps
@@ -27,6 +25,7 @@
 
 ### done
 
+- list_builds.py
 - ping_build.py should just take app name
 - rename search-codebuild_logs as simply search_build_logs.py
 - run tests
