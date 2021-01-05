@@ -24,7 +24,7 @@ Parameters:
     Default: aws/codebuild/standard:4.0
   CodeBuildBuildSpecLocation:
     Type: String
-    Default: templates/buildspec.yaml
+    Default: "../templates/buildspec.yaml"
   CodeBuildPythonVersion:
     Type: String
     Default: "3.8"
