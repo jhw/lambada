@@ -1,9 +1,6 @@
 ### short
 
-- code- generate buildspec
-- python deps
-- move stack.yaml into root
-- codebuild status pinging script
+- python deps config
 
 ### medium
 
@@ -24,6 +21,9 @@
 
 ### done
 
+- code- generate buildspec
+- move stack.yaml into root
+- codebuild status pinging script
 - replace start_build.sh with run_pipeline.sh
 
 ```
