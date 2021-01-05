@@ -1,7 +1,5 @@
 ### short
 
-- complete pipeline deployment
-
 - git PAT
 
 ### medium
@@ -20,6 +18,7 @@
 
 ### done
 
+- complete pipeline deployment
 - script to deploy pipeline
 - script to get codebuild logs
 - config.yaml
