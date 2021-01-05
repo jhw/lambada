@@ -1,5 +1,7 @@
 ### short
 
+- run tests
+
 - script to ping latest codebuild status
 
 - python pip test deps config
@@ -7,7 +9,6 @@
 
 ### medium
 
-- run tests
 - capture codebuild test errors
 - git tags
 - slack alerts
@@ -17,6 +18,8 @@
 
 ### thoughts
 
+- `fast` option to avoid zip/pip updates ?
+  - probably not a lot of point if you have to add deps
 - add variable name for artifacts ?
   - probably not worth it if you're going to code- generate buildspec
 - upgrade all scripts to boto3, taking yaml files ?
