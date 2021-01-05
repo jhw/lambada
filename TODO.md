@@ -1,10 +1,19 @@
 ### short
 
+- list_builds.py needs to check against endTime not existing
+
+- add requests to lamdemo
+  - does it get built automatically ?
+
 ### medium
 
 - capture codebuild test errors
 - git tags
 - slack alerts
+
+- lamdemo to require and symlink project
+  - requires lambada tags
+  - lookup deps from requirements.txt ?
 
 - clean up codebuild projects
 - remove managed policies
