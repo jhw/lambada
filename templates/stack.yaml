@@ -26,7 +26,7 @@ Parameters:
     Default: aws/codebuild/standard:4.0
   CodePipelineRestartOnUpdate:
     Type: String
-    Default: "true"
+    Default: true
 Resources:
   CodeBuildProject:
     Properties:
@@ -39,14 +39,17 @@ Resources:
           Ref: CodeBuildType
       Name:
         Ref: AppName
-      ServiceRole: !GetAtt 'CodeBuildRole.Arn'
+      ServiceRole:
+        Fn::GetAtt:
+          - CodeBuildRole
+          - Arn
       Source:
         Type: CODEPIPELINE
         BuildSpec:
           Fn::Sub:
             - "${build_spec}"
             - build_spec:
-                Ref: CodeBuildBuildSpec  
+                Ref: CodeBuildBuildSpec
       Artifacts:
         Type: CODEPIPELINE
         Location:
@@ -75,7 +78,10 @@ Resources:
         Ref: AppName
       RestartExecutionOnUpdate:
         Ref: CodePipelineRestartOnUpdate
-      RoleArn: !GetAtt 'CodePipelineRole.Arn'
+      RoleArn:
+        Fn::GetAtt:
+          - CodePipelineRole
+          - Arn
       Stages:
         - Actions:
             - ActionTypeId:

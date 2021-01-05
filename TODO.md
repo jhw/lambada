@@ -1,16 +1,14 @@
 ### short
 
-- replace GetAtt
+- code- generate buildspec
+- add python deps
+- move stack.yaml into root
 
 - pipeline not restarting on redeploy
   - check pipeline redeploy spec
   - ArtifactsOverride must be set when using artifacts type CodePipelines
 
-- add variable name for artifacts
 - codebuild status pinging script
-- code- generate buildspec
-- move stack.yaml into root
-- python deps
 
 ### medium
 
@@ -22,6 +20,8 @@
 
 ### thoughts
 
+- add variable name for artifacts ?
+  - probably not worth it if you're going to code- generate buildspec
 - avoid having to specify ../ in codebuild src ?
   - not sure it's worth it
 - upgrade all scripts to boto3, taking yaml files ?
@@ -29,6 +29,8 @@
 
 ### done
 
+- handler is missing from s3 zipfile
+- replace GetAtt
 - test adding back commit messages
 - re- check logs script
 - fix missing s3 cp

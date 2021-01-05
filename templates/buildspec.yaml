@@ -11,7 +11,7 @@ phases:
       - pip3 install --upgrade awscli
   build:
     commands:
-      - zip lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip lamdemo/** -x "*/__pycache__/*" "*/test.py"
+      - zip lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip -r lamdemo/** -x "*/__pycache__/*" "*/test.py"
   post_build:
     commands:
       - aws s3 cp lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip s3://wol-deployments/
