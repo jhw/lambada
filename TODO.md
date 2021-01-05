@@ -1,15 +1,12 @@
 ### short
 
-- list_builds.py needs to check against endTime not existing
+- capture codebuild test errors
 
-- add requests to lamdemo
-  - does it get built automatically ?
+- git tags
+
+- slack alerts
 
 ### medium
-
-- capture codebuild test errors
-- git tags
-- slack alerts
 
 - lamdemo to require and symlink project
   - requires lambada tags
@@ -31,6 +28,9 @@
 
 ### done
 
+- add requests to lamdemo
+  - does it get built automatically ?
+- list_builds.py needs to check against endTime not existing
 - custom pip test deps
 - custom git test deps
 - list_builds.py

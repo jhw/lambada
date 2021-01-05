@@ -15,7 +15,7 @@ def list_builds(cb, appname):
     for build in builds:
         print ("%s\t%s\t%s\t%s\t%s" % (build["id"],
                                        build["startTime"].strftime("%H:%M:%S"),
-                                       build["endTime"].strftime("%H:%M:%S"),
+                                       build["endTime"].strftime("%H:%M:%S") if "endTime" in build else "N/A",
                                        build["currentPhase"],
                                        build["buildStatus"]))
     
