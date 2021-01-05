@@ -1,12 +1,16 @@
 ### short
 
-- capture codebuild test errors
+- test.py to force codebuild failure
+- codebuild notifications
 
-- git tags
+### pending
 
-- slack alerts
+- https://stackoverflow.com/questions/65583806/aws-codepipeline-to-listen-for-github-tag-events
 
 ### medium
+
+- git tags
+- slack alerts
 
 - lamdemo to require and symlink project
   - requires lambada tags
