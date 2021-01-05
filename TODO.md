@@ -2,9 +2,6 @@
 
 ### medium
 
-- custom pip test deps
-- custom git test deps
-
 - capture codebuild test errors
 - git tags
 - slack alerts
@@ -25,6 +22,8 @@
 
 ### done
 
+- custom pip test deps
+- custom git test deps
 - list_builds.py
 - ping_build.py should just take app name
 - rename search-codebuild_logs as simply search_build_logs.py

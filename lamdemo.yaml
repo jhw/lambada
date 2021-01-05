@@ -7,4 +7,14 @@ repo:
   name: lamdemo
   branch: master
   PAT: fcf4900c54ba4c7da53c89f2e3223ff50f555f5e
+deps:
+  - name: lxml
+  - name: requests
+  - name: pymorphy2
+    version: "0.8"
+  - name: readability
+    repo:
+      host: github
+      owner: jhw
+    version: "1.0.2"
   

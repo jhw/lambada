@@ -6,16 +6,38 @@ from botocore.exceptions import ClientError
 
 StackTemplate="stack.yaml"
 
+DefaultDeps=yaml.safe_load("""
+- name: pip
+- name: awscli
+""")
+
+CodeBuildVersion, PythonRuntime = "0.2", "3.8"
+
 def init_buildspec(config,
-                   version="0.2",
-                   runtime="3.8"):
-    def init_install(runtime,
-                     deps=["pip",
-                           "awscli"]):
+                   version=CodeBuildVersion,
+                   runtime=PythonRuntime):
+    def init_install(config, runtime,
+                     defaultdeps=DefaultDeps):
         commands=["apt-get update",
                   "apt-get install zip -y"]
+        deps=defaultdeps
+        if "deps" in config:
+            deps+=config["deps"]
         for dep in deps:
-            command="pip3 install --upgrade %s" % dep
+            if "repo" in dep:
+                host=dep["repo"]["host"]
+                if not host.endswith(".com"):
+                    host+=".com"
+                source="git+https://%s/%s/%s" % (host,
+                                                 dep["repo"]["owner"],
+                                                 dep["name"])
+                if "version" in dep:
+                    source+="@%s" % dep["version"]
+            else:
+                source=dep["name"]
+                if "version" in dep:
+                    source+="==%s" % dep["version"]
+            command="pip3 install --upgrade %s" % source
             commands.append(command)
         return {"runtime-versions": {"python": runtime},                
                 "commands": commands}
@@ -32,7 +54,7 @@ def init_buildspec(config,
         commands=["aws s3 cp %s s3://%s/" % (artifacts(config["globals"]["app"]),
                                              config["globals"]["bucket"])]
         return {"commands": commands}
-    phases={"install": init_install(runtime),
+    phases={"install": init_install(config, runtime),
             "pre_build": init_prebuild(config),
             "build": init_build(config),
             "post_build": init_postbuild(config)}
@@ -72,7 +94,7 @@ def deploy_stack(cf, config,
        Capabilities=["CAPABILITY_IAM"])
     waiter=cf.get_waiter("stack_%s_complete" % action)
     waiter.wait(StackName=stackname)
-    
+
 if __name__=="__main__":
     try:
         if len(sys.argv) < 2:
