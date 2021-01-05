@@ -1,22 +1,26 @@
 ### short
 
-- add parameter for autoredeploy with default value true
-- remove commit temporarily
+- replace GetAtt
+- check pipeline redeploy spec
+- test adding back commit messages
 
+- add variable name for artifacts
 - codebuild status pinging script
-- re- check logs script
 - code- generate buildspec
 - move stack.yaml into root
+- python deps
 
 ### medium
 
-- commit messages
-- replace GetAtt
 - start_codebuild_build generating error
-- buildspec to install python deps
-- buildspec to run tests
-- capture codebuild errors
-- buildspec to use git tags
+
+```
+ArtifactsOverride must be set when using artifacts type CodePipelines
+``` 
+
+- run tests
+- capture codebuild test errors
+- git tags
 - slack alerts
 - remove managed policies
 
@@ -26,11 +30,13 @@
   - not sure it's worth it
 - upgrade all scripts to boto3, taking yaml files ?
   - probably not worth it at this stage
-- script to get latest codebuild project status, on timer ?
-  - probably not directly relevant yet
 
 ### done
 
+- re- check logs script
+- fix missing s3 cp
+- add parameter for autoredeploy with default value true
+- remove commit temporarily
 - hardcode buildspec parameter values and remove environment variables
 - text- substitution of buildspec
 
