@@ -1,6 +1,9 @@
 ### short
 
-- run tests
+- rename search-codebuild_logs as simply search_build_logs.py
+- ping_build.py should just take app name
+- remove build end time from ping_build.py
+- list_builds.py to show build start time
 
 ### medium
 
@@ -25,6 +28,7 @@
 
 ### done
 
+- run tests
 - script to ping latest codebuild status
 - print buildspec on deployment
 - code- generate buildspec
