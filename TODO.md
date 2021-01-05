@@ -1,13 +1,8 @@
 ### short
 
 - code- generate buildspec
-- add python deps
+- python deps
 - move stack.yaml into root
-
-- pipeline not restarting on redeploy
-  - check pipeline redeploy spec
-  - ArtifactsOverride must be set when using artifacts type CodePipelines
-
 - codebuild status pinging script
 
 ### medium
@@ -29,6 +24,14 @@
 
 ### done
 
+- replace start_build.sh with run_pipeline.sh
+
+```
+- ArtifactsOverride must be set when using artifacts type CodePipelines
+```
+
+- pipeline not restarting on redeploy
+  - check pipeline redeploy spec
 - handler is missing from s3 zipfile
 - replace GetAtt
 - test adding back commit messages

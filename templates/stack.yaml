@@ -24,9 +24,6 @@ Parameters:
   CodeBuildImage:
     Type: String
     Default: aws/codebuild/standard:4.0
-  CodePipelineRestartOnUpdate:
-    Type: String
-    Default: true
 Resources:
   CodeBuildProject:
     Properties:
@@ -76,8 +73,6 @@ Resources:
         Type: S3
       Name:
         Ref: AppName
-      RestartExecutionOnUpdate:
-        Ref: CodePipelineRestartOnUpdate
       RoleArn:
         Fn::GetAtt:
           - CodePipelineRole
