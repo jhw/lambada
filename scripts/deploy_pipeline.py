@@ -24,7 +24,7 @@ def deploy_stack(cf, config, template=PipelineTemplate):
                  "ParameterValue": v}
                 for k, v in params.items()]
     stackname=config["globals"]["app"]
-    action="update" if stack_exists(stackname) else "create"
+    action="update" if stack_exists(cf, stackname) else "create"
     fn=getattr(cf, "%s_stack" % action)
     params=init_params(config)
     body=open(template).read()
