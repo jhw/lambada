@@ -1,7 +1,5 @@
 ### short
 
-- script to ping codebuild process
-
 - Phase context status code: YAML_FILE_ERROR Message: stat /codebuild/output/src990799852/src/templates/buildspec.yaml: no such file or directory
 
 ### medium
@@ -15,11 +13,16 @@
 
 ### thoughts
 
+- avoid having to specify ../ in codebuild src ?
+  - not sure it's worth it
+- upgrade all scripts to boto3, taking yaml files ?
+  - probably not worth it at this stage
 - script to get latest codebuild project status, on timer ?
   - probably not directly relevant yet
 
 ### done
 
+- script to ping codebuild process
 - An error occurred (ValidationError) when calling the CreateStack operation: [/Resources/CodePipeline/Type/RestartExecutionOnUpdate] 'null' values are not allowed in templates
 - test deployment
 - complete pipeline deployment
