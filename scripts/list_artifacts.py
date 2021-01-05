@@ -18,7 +18,7 @@ def list_s3(s3, bucket, prefix):
 if __name__=="__main__":
     try:
         if len(sys.argv) < 3:
-            raise RuntimeError("please enter bucket, prefix")
+            raise RuntimeError("Please enter bucket, prefix")
         bucket, prefix = sys.argv[1:3]
         list_s3(boto3.client("s3"), bucket, prefix)
     except ClientError as error:

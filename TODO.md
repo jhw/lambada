@@ -1,6 +1,5 @@
 ### short
 
-- script to get codebuild logs
 - script to deploy pipeline
 - git PAT
 
@@ -20,6 +19,7 @@
 
 ### done
 
+- script to get codebuild logs
 - config.yaml
 - boto3 script to list s3 assets w/ prefix
 - lamdemo project
