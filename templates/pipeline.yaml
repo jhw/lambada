@@ -22,25 +22,12 @@ Parameters:
   CodeBuildImage:
     Type: String
     Default: aws/codebuild/standard:4.0
-  CodeBuildPythonVersion:
-    Type: String
-    Default: "3.8"
 Resources:
   CodeBuildProject:
     Properties:
       Environment:
         ComputeType:
           Ref: CodeBuildComputeType
-        EnvironmentVariables:
-          - Name: APP_NAME
-            Value:
-              Ref: AppName
-          - Name: STAGING_BUCKET
-            Value:
-              Ref: StagingBucket
-          - Name: PYTHON_VERSION
-            Value:
-              Ref: CodeBuildPythonVersion
         Image:
           Ref: CodeBuildImage
         Type:
@@ -50,7 +37,7 @@ Resources:
       ServiceRole: !GetAtt 'CodeBuildRole.Arn'
       Source:
         Type: CODEPIPELINE
-        BuildSpec: 'env:\n  variables:\n    ZIPPED_ARTIFACTS: $APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip\nphases:\n  build:\n    commands:\n    - zip $ZIPPED_ARTIFACTS $APP_NAME/** -x "*/__pycache__/*" "*/test.py"\n  install:\n    commands:\n    - apt-get update\n    - apt-get install zip -y\n    - pip3 install --upgrade pip\n    - pip3 install --upgrade awscli\n    runtime-versions:\n      python: $PYTHON_VERSION\n  post-build:\n    commands:\n    - aws cp $ZIPPED_ARTIFACTS s3://$STAGING_BUCKET/\nversion: 0.2\n'
+        BuildSpec: 'version: 0.2\nphases:\n  install:\n    runtime-versions:\n      python: 3.8\n    commands:\n      - apt-get update\n      - apt-get install zip -y\n      - pip3 install --upgrade pip\n      - pip3 install --upgrade awscli\n  build:\n    commands:\n      - zip lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip lamdemo/** -x "*/__pycache__/*" "*/test.py"\n  post-build:\n    commands:\n      - aws cp lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip s3://wol-deployments/\n'
       Artifacts:
         Type: CODEPIPELINE
         Location:

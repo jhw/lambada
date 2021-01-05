@@ -2,7 +2,6 @@
 globals:
   app: lamdemo
   bucket: wol-deployments
-  runtime: "3.8"
 repo:
   owner: jhw
   name: lamdemo

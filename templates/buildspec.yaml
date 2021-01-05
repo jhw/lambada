@@ -1,11 +1,8 @@
 version: 0.2
-env:
-  variables:
-    ZIPPED_ARTIFACTS: $APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip
 phases:
   install:
     runtime-versions:
-      python: $PYTHON_VERSION
+      python: 3.8
     commands:
       - apt-get update
       - apt-get install zip -y
@@ -13,7 +10,7 @@ phases:
       - pip3 install --upgrade awscli
   build:
     commands:
-      - zip $ZIPPED_ARTIFACTS $APP_NAME/** -x "*/__pycache__/*" "*/test.py"
+      - zip lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip lamdemo/** -x "*/__pycache__/*" "*/test.py"
   post-build:
     commands:
-      - aws cp $ZIPPED_ARTIFACTS s3://$STAGING_BUCKET/
+      - aws cp lamdemo-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip s3://wol-deployments/
