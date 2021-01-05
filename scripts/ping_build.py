@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import boto3, sys, yaml
+import boto3, os, sys, time, yaml
 
 from botocore.exceptions import ClientError
 
@@ -18,12 +18,16 @@ def ping_build(cb, config,
         return cb.batch_get_builds(ids=resp["ids"])["builds"]
     for i in range(maxtries):
         time.sleep(wait)
-        builds=get_builds(cb, config)
+        builds=sorted(get_builds(cb, config),
+                      key=lambda x: x["startTime"])
         latest=builds.pop()
-        print ("%i/%i\t%s\t%s" % (1+i,
-                                  maxtries,
-                                  latest["currentPhase"],
-                                  latest["buildStatus"]))
+        print ("%i/%i\t%s\t%s\t%s\t%s\t%s" % (1+i,
+                                              maxtries,
+                                              latest["id"],
+                                              latest["startTime"].strftime("%H:%M:%S"),
+                                              latest["endTime"].strftime("%H:%M:%S") if "endTime" in latest else "N/A",
+                                              latest["currentPhase"],
+                                              latest["buildStatus"]))
         if latest["buildStatus"] in exitcodes:
             break
     
@@ -39,7 +43,7 @@ if __name__=="__main__":
         config=yaml.safe_load(open(configfile).read())    
         ping_build(boto3.client("codebuild"), config)
     except ClientError as error:
-        logging.error(str(error))
+        print (error)
     except RuntimeError as error:
-        logging.error(str(error))
+        print ("Error: %s" % (str(error)))
 
