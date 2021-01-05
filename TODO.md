@@ -1,6 +1,6 @@
 ### short
 
-- git PAT
+- test deployment
 
 ### medium
 
