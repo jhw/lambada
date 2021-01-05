@@ -1,8 +1,6 @@
 ### short
 
-- ping_build.py should just take app name
-
-- list_builds.py to show build start time
+- list_builds.py
 
 ### medium
 
@@ -29,6 +27,7 @@
 
 ### done
 
+- ping_build.py should just take app name
 - rename search-codebuild_logs as simply search_build_logs.py
 - run tests
 - script to ping latest codebuild status
