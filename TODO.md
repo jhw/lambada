@@ -1,8 +1,10 @@
 ### short
 
 - replace GetAtt
-- check pipeline redeploy spec
-- test adding back commit messages
+
+- pipeline not restarting on redeploy
+  - check pipeline redeploy spec
+  - ArtifactsOverride must be set when using artifacts type CodePipelines
 
 - add variable name for artifacts
 - codebuild status pinging script
@@ -11,12 +13,6 @@
 - python deps
 
 ### medium
-
-- start_codebuild_build generating error
-
-```
-ArtifactsOverride must be set when using artifacts type CodePipelines
-``` 
 
 - run tests
 - capture codebuild test errors
@@ -33,6 +29,7 @@ ArtifactsOverride must be set when using artifacts type CodePipelines
 
 ### done
 
+- test adding back commit messages
 - re- check logs script
 - fix missing s3 cp
 - add parameter for autoredeploy with default value true
