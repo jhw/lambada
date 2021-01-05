@@ -1,33 +1,18 @@
-### super short
-
-- is looking for buildspec.yaml in lamdemo directory!
-- revert buildspec src
-- could buildspec be included inline, like in layers ?
-- maybe its better to include it in the client, as it solves the deps issue
-- maybe including it in the pipeline is over- centralisation
-- maybe its equivalent to gitlab.yaml
-- maybe just include it as root buildspec.yaml ? or better to specify ?
-- maybe remove templates directory as you only have one template in each of target and pipeline
-- rename deploy_pipeline.py as deploy_stack.yaml
-
 ### short
 
-```
-Phase context status code: YAML_FILE_ERROR Message: stat /codebuild/output/src990799852/src/templates/buildspec.yaml: no such file or directory
-```
+- replace buildspec ref with inline buildspec, as per layers
+  - pass as string
+- add parameter for autoredeploy with default value true
 
-- start_codebuild_build generating following error
+- move pipeline.yaml into root and rename as stack.yaml
+- rename deploy_pipeline.py as deploy_stack.py
 
-```
-n error occurred (InvalidInputException) when calling the StartBuild operation: ArtifactsOverride must be set when using artifacts type CodePipelines
-```
-
-- auto restart codebuild on pipeline redeployment ?
-  - this should at least be a default variable
-  - avoid needing to tear pipeline down and redeploy each time
+- code- generate buildspec
 
 ### medium
 
+- replace GetAtt
+- start_codebuild_build generating error
 - buildspec to install python deps
 - buildspec to run tests
 - capture codebuild errors
