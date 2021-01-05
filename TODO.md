@@ -2,13 +2,10 @@
 
 - run tests
 
-- script to ping latest codebuild status
-
-- python pip test deps config
-- python git test deps config
-
 ### medium
 
+- custom pip test deps
+- custom git test deps
 - capture codebuild test errors
 - git tags
 - slack alerts
@@ -27,6 +24,7 @@
 
 ### done
 
+- script to ping latest codebuild status
 - print buildspec on deployment
 - code- generate buildspec
 - move stack.yaml into root
