@@ -1,6 +1,9 @@
 ### short
 
-- python deps config
+- script to ping latest codebuild status
+
+- python pip test deps config
+- python git test deps config
 
 ### medium
 
@@ -8,19 +11,20 @@
 - capture codebuild test errors
 - git tags
 - slack alerts
+
+- clean up codebuild projects
 - remove managed policies
 
 ### thoughts
 
 - add variable name for artifacts ?
   - probably not worth it if you're going to code- generate buildspec
-- avoid having to specify ../ in codebuild src ?
-  - not sure it's worth it
 - upgrade all scripts to boto3, taking yaml files ?
   - probably not worth it at this stage
 
 ### done
 
+- print buildspec on deployment
 - code- generate buildspec
 - move stack.yaml into root
 - codebuild status pinging script

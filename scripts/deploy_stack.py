@@ -61,6 +61,8 @@ def deploy_stack(cf, config,
     action="update" if stack_exists(cf, stackname) else "create"
     fn=getattr(cf, "%s_stack" % action)
     buildspec=init_buildspec(config)
+    print (yaml.safe_dump(buildspec,
+                          default_flow_style=False))
     params=init_params(config, buildspec)
     body=open(stackfile).read()
     fn(StackName=stackname,
