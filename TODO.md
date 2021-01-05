@@ -1,6 +1,8 @@
 ### short
 
-- An error occurred (ValidationError) when calling the CreateStack operation: [/Resources/CodePipeline/Type/RestartExecutionOnUpdate] 'null' values are not allowed in templates
+- script to ping codebuild process
+
+- Phase context status code: YAML_FILE_ERROR Message: stat /codebuild/output/src990799852/src/templates/buildspec.yaml: no such file or directory
 
 ### medium
 
@@ -18,6 +20,7 @@
 
 ### done
 
+- An error occurred (ValidationError) when calling the CreateStack operation: [/Resources/CodePipeline/Type/RestartExecutionOnUpdate] 'null' values are not allowed in templates
 - test deployment
 - complete pipeline deployment
 - script to deploy pipeline

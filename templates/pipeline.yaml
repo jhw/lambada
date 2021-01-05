@@ -81,7 +81,7 @@ Resources:
         Type: S3
       Name:
         Ref: AppName
-      RestartExecutionOnUpdate:
+      RestartExecutionOnUpdate: false
       RoleArn: !GetAtt 'CodePipelineRole.Arn'
       Stages:
         - Actions:
