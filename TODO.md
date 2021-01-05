@@ -1,10 +1,9 @@
 ### short
 
-- boto3 script to get latest codebuild status 
-- boto3 script to get codebuild logs
-
+- script to get codebuild logs
+- config.yaml
+- script to deploy pipeline
 - git PAT
-- test
 
 ### medium
 
@@ -16,6 +15,9 @@
 - remove managed policies
 
 ### thoughts
+
+- script to get latest codebuild project status, on timer ?
+  - probably not directly relevant yet
 
 ### done
 
