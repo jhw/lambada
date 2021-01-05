@@ -1,7 +1,7 @@
 ### short
 
-- remove build end time from ping_build.py
 - ping_build.py should just take app name
+
 - list_builds.py to show build start time
 
 ### medium
@@ -18,6 +18,8 @@
 
 ### thoughts
 
+- remove build end time from ping_build.py
+  - no is useful if a build has completed
 - `fast` option to avoid zip/pip updates ?
   - probably not a lot of point if you have to add deps
 - add variable name for artifacts ?
