@@ -1,0 +1,10 @@
+---
+globals:
+  app: polyreader
+  bucket: wol-deployments
+  runtime: "3.8"
+repo:
+  owner: jhw
+  name: lamdemo
+  branch: master
+  
