@@ -1,8 +1,9 @@
-### git tags 05/01/21
+### git tags 05/01/2
 
 - https://ruddra.com/aws-codebuild-use-git-tags/
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html
 - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/create-webhook.html
+- https://stackoverflow.com/questions/63143638/aws-codebuild-webhook-cloudformation
 
 ### codebuild notifications 05/01/21
 

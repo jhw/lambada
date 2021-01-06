@@ -3,13 +3,10 @@
 - test.py to force codebuild failure
 - codebuild notifications
 
-### pending
-
-- https://stackoverflow.com/questions/65583806/aws-codepipeline-to-listen-for-github-tag-events
-
 ### medium
 
 - git tags
+
 - slack alerts
 
 - lamdemo to require and symlink project
