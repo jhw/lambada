@@ -3,10 +3,14 @@
 - test.py to force codebuild failure
 - codebuild notifications
 
+### pending
+
+- https://console.aws.amazon.com/support/home#/case/?displayId=7830810411&language=en
+
 ### medium
 
+- pat as secret
 - git tags
-
 - slack alerts
 
 - lamdemo to require and symlink project
