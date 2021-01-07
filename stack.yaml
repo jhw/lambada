@@ -41,16 +41,34 @@ Resources:
           - CodeBuildRole
           - Arn
       Source:
-        Type: CODEPIPELINE
+        Location:
+          Fn::Sub:
+            - "https://github.com/${repo_owner}/${repo_name}.git"
+            - repo_owner:
+                Ref: RepoOwner
+              repo_name:
+                Ref: RepoName
+        Type: GITHUB
+        Auth:
+          Type: OAUTH
+          Resource:
+            Ref: RepoPAT
         BuildSpec:
           Fn::Sub:
             - "${build_spec}"
             - build_spec:
                 Ref: CodeBuildBuildSpec
-      Artifacts:
-        Type: CODEPIPELINE
-        Location:
-          Ref: StagingBucket
+      SourceVersion:
+        Ref: RepoBranch
+      Triggers:
+        Webhook: true
+        FilterGroups:
+          - - Type: EVENT
+              Pattern: PUSH
+              ExcludeMatchedPattern: false
+            - Type: HEAD_REF
+              Pattern: refs/heads/master
+              ExcludeMatchedPattern: false
     Type: AWS::CodeBuild::Project
   CodeBuildRole:
     Properties:
@@ -63,69 +81,5 @@ Resources:
         Version: '2012-10-17'
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AdministratorAccess
-      Path: /
-    Type: AWS::IAM::Role
-  CodePipeline:
-    Properties:
-      ArtifactStore:
-        Location:
-          Ref: StagingBucket
-        Type: S3
-      Name:
-        Ref: AppName
-      RoleArn:
-        Fn::GetAtt:
-          - CodePipelineRole
-          - Arn
-      Stages:
-        - Actions:
-            - ActionTypeId:
-                Category: Source
-                Owner: ThirdParty
-                Provider: GitHub
-                Version: '1'
-              Configuration:
-                Branch:
-                  Ref: RepoBranch
-                OAuthToken:
-                  Ref: RepoPAT
-                Owner:
-                  Ref: RepoOwner
-                PollForSourceChanges: true
-                Repo:
-                  Ref: RepoName
-              Name: SourceStage
-              OutputArtifacts:
-                - Name: src
-              RunOrder: 1
-          Name: GetSource
-        - Actions:
-            - ActionTypeId:
-                Category: Build
-                Owner: AWS
-                Provider: CodeBuild
-                Version: '1'
-              Configuration:
-                ProjectName:
-                  Ref: CodeBuildProject
-              InputArtifacts:
-                - Name: src
-              Name: BuildStage
-              RunOrder: 1
-          Name: Build
-    Type: AWS::CodePipeline::Pipeline
-  CodePipelineRole:
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Action: sts:AssumeRole
-            Effect: Allow
-            Principal:
-              Service: codepipeline.amazonaws.com
-        Version: '2012-10-17'
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-        - arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess
-        - arn:aws:iam::aws:policy/AWSCodePipelineFullAccess
       Path: /
     Type: AWS::IAM::Role
