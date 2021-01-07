@@ -58,6 +58,10 @@ Resources:
             - "${build_spec}"
             - build_spec:
                 Ref: CodeBuildBuildSpec
+      Artifacts:
+        Type: CODEPIPELINE
+        Location:
+          Ref: StagingBucket
       SourceVersion:
         Ref: RepoBranch
       Triggers:
