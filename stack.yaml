@@ -26,6 +26,8 @@ Parameters:
     Default: aws/codebuild/standard:4.0
 Resources:
   CodeBuildProject:
+    DependsOn:
+      - CodeBuildSourceCredential
     Properties:
       Environment:
         ComputeType:
@@ -49,17 +51,13 @@ Resources:
               repo_name:
                 Ref: RepoName
         Type: GITHUB
-        Auth:
-          Type: OAUTH
-          Resource:
-            Ref: RepoPAT
         BuildSpec:
           Fn::Sub:
             - "${build_spec}"
             - build_spec:
                 Ref: CodeBuildBuildSpec
       Artifacts:
-        Type: CODEPIPELINE
+        Type: S3
         Location:
           Ref: StagingBucket
       SourceVersion:
@@ -74,6 +72,13 @@ Resources:
               Pattern: refs/heads/master
               ExcludeMatchedPattern: false
     Type: AWS::CodeBuild::Project
+  CodeBuildSourceCredential:
+    Type: AWS::CodeBuild::SourceCredential
+    Properties: 
+      Token:
+        Ref: RepoPAT
+      ServerType: GITHUB
+      AuthType: PERSONAL_ACCESS_TOKEN
   CodeBuildRole:
     Properties:
       AssumeRolePolicyDocument:

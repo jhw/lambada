@@ -1,16 +1,16 @@
 ### short
 
-- test.py to force codebuild failure
-- codebuild notifications
+- git tags example
 
 ### pending
 
-- https://console.aws.amazon.com/support/home#/case/?displayId=7830810411&language=en
+- https://console.aws.amazon.com/support/home#/case/?displayId=7830810411
 
 ### medium
 
+- test.py to force codebuild failure
+- codebuild notifications
 - pat as secret
-- git tags
 - slack alerts
 
 - lamdemo to require and symlink project
