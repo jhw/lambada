@@ -41,18 +41,16 @@ def init_buildspec(config,
             commands.append(command)
         return {"runtime-versions": {"python": runtime},                
                 "commands": commands}
-    def artifacts(appname):
-        return "%s-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip" % appname
     def init_prebuild(config):
-        commands=["python test.py"]
+        commands=[]
+        commands.append("ARTIFACTS=%s-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip" % config["globals"]["app"])
+        commands.append("python test.py")
         return {"commands": commands}
-    def init_build(config):        
-        commands=["zip %s -r %s/** -x */__pycache__/* */test.py" % (artifacts(config["globals"]["app"]),
-                                                                    config["globals"]["app"])]
+    def init_build(config):
+        commands=["zip $ARTIFACTS -r %s/** -x */__pycache__/* */test.py" % config["globals"]["app"]]
         return {"commands": commands}
     def init_postbuild(config):
-        commands=["aws s3 cp %s s3://%s/" % (artifacts(config["globals"]["app"]),
-                                             config["globals"]["bucket"])]
+        commands=["aws s3 cp $ARTIFACTS s3://%s/" % config["globals"]["bucket"]]
         return {"commands": commands}
     phases={"install": init_install(config, runtime),
             "pre_build": init_prebuild(config),

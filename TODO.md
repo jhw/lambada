@@ -1,6 +1,5 @@
 ### short
 
-- test defining commit slug as variable
 - test calling git command
 - sed to text replace git
 - git tags example
@@ -35,6 +34,7 @@
 
 ### done
 
+- test defining commit slug as variable
 - https://console.aws.amazon.com/support/home#/case/?displayId=7830810411
 - add requests to lamdemo
   - does it get built automatically ?
