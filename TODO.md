@@ -1,8 +1,10 @@
 ### short
 
-- test calling git command
-- sed to text replace git
-- git tags example
+- new tags branch
+- sed tag replacement example
+- commit/tag if/else example
+- modify ARTIFACTS to use tag if available
+- test
 
 ### medium
 
@@ -34,6 +36,7 @@
 
 ### done
 
+- test calling git command
 - test defining commit slug as variable
 - https://console.aws.amazon.com/support/home#/case/?displayId=7830810411
 - add requests to lamdemo
