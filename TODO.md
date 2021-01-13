@@ -1,5 +1,6 @@
 ### short
 
+- log RAW_TAG, MOD_TAG
 - move APP_NAME into env/variables
 - clean_artifacts.py
 
