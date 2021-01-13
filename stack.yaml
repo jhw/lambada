@@ -69,7 +69,7 @@ Resources:
               Pattern: PUSH
               ExcludeMatchedPattern: false
             - Type: HEAD_REF
-              Pattern: refs/heads/master
+              Pattern: "refs/heads/.*"
               ExcludeMatchedPattern: false
     Type: AWS::CodeBuild::Project
   CodeBuildSourceCredential:
