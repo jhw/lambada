@@ -13,6 +13,11 @@ DefaultDeps=yaml.safe_load("""
 
 CodeBuildVersion, PythonRuntime = "0.2", "3.8"
 
+"""
+- variables (eg ARTIFACTS) defined in `init_prebuild` and then shared across other phases
+- variables defined in `env/variables` don't seem able to resolve environment variables
+"""
+
 def init_buildspec(config,
                    version=CodeBuildVersion,
                    runtime=PythonRuntime):
