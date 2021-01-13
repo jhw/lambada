@@ -16,6 +16,7 @@ CodeBuildVersion, PythonRuntime = "0.2", "3.8"
 """
 - using a single phase only to avoid phases continuing to run after failure
 - https://stackoverflow.com/questions/46584324/code-build-continues-after-build-fails
+- POST_BUILD still runs even if BUILD fails, but if there's nothing in POST_BUILD it doesn't matter
 """
 
 BuildPhase=yaml.safe_load("""

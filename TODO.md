@@ -1,14 +1,19 @@
 ### short
 
-- single build phase
-- test build on test.py runtime error
 - codebuild notifications
+- test capturing of build failure
 - slack alerts
+
+### pending
+
+- https://console.aws.amazon.com/support/home#/case/?displayId=7830810411&language=en
 
 ### medium
 
 - clean_artifacts.py
 - scripts/*.py to strip `.yaml` from $1 if not required
+- codebuild charts
+
 - avoid coding codebuild failure into client project tests
 - remove burningmonk us-xxxx-x assets
 - clean up codebuild projects
@@ -30,6 +35,8 @@
 
 ### done
 
+- single build phase
+- test build on test.py runtime error
 - log RAW_TAG, MOD_TAG
 - move APP_NAME into env/variables
 - remove head filter
