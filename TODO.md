@@ -1,10 +1,9 @@
 ### short
 
-- new tags branch
-- sed tag replacement example
-- commit/tag if/else example
-- modify ARTIFACTS to use tag if available
-- test
+- add tags filter
+- test tags
+- replace dots in tags
+- clean_artifacts.py
 
 ### medium
 
@@ -36,6 +35,9 @@
 
 ### done
 
+- modify ARTIFACTS to use tag if available
+- new tags branch
+- commit/tag if/else example
 - test calling git command
 - test defining commit slug as variable
 - https://console.aws.amazon.com/support/home#/case/?displayId=7830810411

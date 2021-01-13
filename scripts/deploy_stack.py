@@ -48,7 +48,9 @@ def init_buildspec(config,
                 "commands": commands}
     def init_prebuild(config):
         commands=[]
-        commands.append("ARTIFACTS=%s-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip" % config["globals"]["app"])
+        commands.append("APP_NAME=%s" % config["globals"]["app"])
+        commands.append("TAG=$(git describe --tags --abbrev=0)")
+        commands.append("if [ -n \"$TAG\" ]; then ARTIFACTS=$APP_NAME-$TAG.zip; else ARTIFACTS=$APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip; fi")        
         commands.append("python test.py")
         return {"commands": commands}
     def init_build(config):
@@ -89,6 +91,7 @@ def deploy_stack(cf, config,
     buildspec=init_buildspec(config)
     print (yaml.safe_dump(buildspec,
                           default_flow_style=False))
+    """
     params=init_params(config, buildspec)
     body=open(stackfile).read()
     fn(StackName=stackname,
@@ -97,6 +100,7 @@ def deploy_stack(cf, config,
        Capabilities=["CAPABILITY_IAM"])
     waiter=cf.get_waiter("stack_%s_complete" % action)
     waiter.wait(StackName=stackname)
+    """
 
 if __name__=="__main__":
     try:
