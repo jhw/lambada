@@ -1,6 +1,5 @@
 ### short
 
-- test removing initial filter
 - test defining commit slug as variable
 - test calling git command
 - sed to text replace git
@@ -21,6 +20,8 @@
 
 ### thoughts
 
+- test removing EVENT filter ?
+  - no is required
 - pat as secret ?
   - no because it's only needed at build time, not runtime
 - remove build end time from ping_build.py
