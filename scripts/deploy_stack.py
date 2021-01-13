@@ -91,7 +91,6 @@ def deploy_stack(cf, config,
     buildspec=init_buildspec(config)
     print (yaml.safe_dump(buildspec,
                           default_flow_style=False))
-    """
     params=init_params(config, buildspec)
     body=open(stackfile).read()
     fn(StackName=stackname,
@@ -100,7 +99,6 @@ def deploy_stack(cf, config,
        Capabilities=["CAPABILITY_IAM"])
     waiter=cf.get_waiter("stack_%s_complete" % action)
     waiter.wait(StackName=stackname)
-    """
 
 if __name__=="__main__":
     try:

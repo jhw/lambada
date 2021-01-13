@@ -1,8 +1,7 @@
 ### short
 
-- add tags filter
-- test tags
 - replace dots in tags
+- move APP_NAME into env/variables
 - clean_artifacts.py
 
 ### medium
@@ -35,6 +34,8 @@
 
 ### done
 
+- add tags filter
+- test tags
 - modify ARTIFACTS to use tag if available
 - new tags branch
 - commit/tag if/else example
