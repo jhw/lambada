@@ -1,4 +1,13 @@
-### git tags 05/01/2
+### git tags 14/01/20
+
+```
+        commands.append("APP_NAME=%s" % config["globals"]["app"])
+        commands.append("RAW_TAG=$(git describe --tags --abbrev=0)")
+        commands.append("MOD_TAG=$(echo \"$RAW_TAG\" | sed -e 's/\W/-/g')")
+        commands.append("if [ -n \"$RAW_TAG\" ]; then ARTIFACTS=$APP_NAME-$MOD_TAG.zip; else ARTIFACTS=$APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip; fi")
+```
+
+### git tags 05/01/20
 
 - https://ruddra.com/aws-codebuild-use-git-tags/
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html

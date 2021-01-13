@@ -69,12 +69,6 @@ Resources:
               Pattern: PUSH
               ExcludeMatchedPattern: false
             - Type: HEAD_REF
-              Pattern: "refs/heads/.*"
-              ExcludeMatchedPattern: false
-          - - Type: EVENT
-              Pattern: PUSH
-              ExcludeMatchedPattern: false
-            - Type: HEAD_REF
               Pattern: "refs/tags/.*"
               ExcludeMatchedPattern: false
     Type: AWS::CodeBuild::Project

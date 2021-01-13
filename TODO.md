@@ -1,7 +1,5 @@
 ### short
 
-- replace dots in tags
-  - https://stackoverflow.com/questions/13043344/search-and-replace-in-bash-using-regular-expressions
 - move APP_NAME into env/variables
 - clean_artifacts.py
 
@@ -35,6 +33,9 @@
 
 ### done
 
+- remove head filter
+- replace dots in tags
+  - https://stackoverflow.com/questions/13043344/search-and-replace-in-bash-using-regular-expressions
 - add tags filter
 - test tags
 - modify ARTIFACTS to use tag if available

@@ -49,8 +49,9 @@ def init_buildspec(config,
     def init_prebuild(config):
         commands=[]
         commands.append("APP_NAME=%s" % config["globals"]["app"])
-        commands.append("TAG=$(git describe --tags --abbrev=0)")
-        commands.append("if [ -n \"$TAG\" ]; then ARTIFACTS=$APP_NAME-$TAG.zip; else ARTIFACTS=$APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip; fi")        
+        commands.append("RAW_TAG=$(git describe --tags --abbrev=0)")
+        commands.append("MOD_TAG=$(echo \"$RAW_TAG\" | sed -e 's/\W/-/g')")
+        commands.append("if [ -n \"$RAW_TAG\" ]; then ARTIFACTS=$APP_NAME-$MOD_TAG.zip; else ARTIFACTS=$APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip; fi")        
         commands.append("python test.py")
         return {"commands": commands}
     def init_build(config):
