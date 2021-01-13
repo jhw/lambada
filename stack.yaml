@@ -65,10 +65,7 @@ Resources:
       Triggers:
         Webhook: true
         FilterGroups:
-          - - Type: EVENT
-              Pattern: PUSH
-              ExcludeMatchedPattern: false
-            - Type: HEAD_REF
+          - - Type: HEAD_REF
               Pattern: "refs/heads/.*"
               ExcludeMatchedPattern: false
     Type: AWS::CodeBuild::Project
