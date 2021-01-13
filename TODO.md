@@ -1,6 +1,7 @@
 ### short
 
 - replace dots in tags
+  - https://stackoverflow.com/questions/13043344/search-and-replace-in-bash-using-regular-expressions
 - move APP_NAME into env/variables
 - clean_artifacts.py
 
