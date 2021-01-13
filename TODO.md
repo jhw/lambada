@@ -1,16 +1,15 @@
 ### short
 
+- test removing initial filter
+- test defining commit slug as variable
+- test calling git command
+- sed to text replace git
 - git tags example
-
-### pending
-
-- https://console.aws.amazon.com/support/home#/case/?displayId=7830810411
 
 ### medium
 
 - test.py to force codebuild failure
 - codebuild notifications
-- pat as secret
 - slack alerts
 
 - lamdemo to require and symlink project
@@ -22,6 +21,8 @@
 
 ### thoughts
 
+- pat as secret ?
+  - no because it's only needed at build time, not runtime
 - remove build end time from ping_build.py
   - no is useful if a build has completed
 - `fast` option to avoid zip/pip updates ?
@@ -33,6 +34,7 @@
 
 ### done
 
+- https://console.aws.amazon.com/support/home#/case/?displayId=7830810411
 - add requests to lamdemo
   - does it get built automatically ?
 - list_builds.py needs to check against endTime not existing
