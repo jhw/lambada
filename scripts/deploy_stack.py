@@ -14,13 +14,31 @@ DefaultDeps=yaml.safe_load("""
 CodeBuildVersion, PythonRuntime = "0.2", "3.8"
 
 """
-- variables (eg ARTIFACTS) defined in `init_prebuild` and then shared across other phases
-- variables defined in `env/variables` don't seem able to resolve environment variables
+- using a single phase only to avoid phases continuing to run after failure
+- https://stackoverflow.com/questions/46584324/code-build-continues-after-build-fails
 """
 
+BuildPhase=yaml.safe_load("""
+- 'python test.py'
+- 'RAW_TAG=$(git describe --tags --abbrev=0)'
+- 'echo "RAW_TAG=$RAW_TAG"'
+- 'MOD_TAG=$(echo "$RAW_TAG" | sed -e "s/\W/-/g")'
+- 'echo "MOD_TAG=$MOD_TAG"'
+- 'ARTIFACTS=$APP_NAME-$MOD_TAG.zip'
+- 'echo "ARTIFACTS=$ARTIFACTS"'
+- 'zip $ARTIFACTS -r $APP_NAME/** -x */__pycache__/* */test.py'
+- 'aws s3 cp $ARTIFACTS s3://$BUCKET_NAME/'
+""")
+
+Phases={"build": BuildPhase}
+
 def init_buildspec(config,
-                   version=CodeBuildVersion,
-                   runtime=PythonRuntime):
+                   version=CodeBuildVersion,                   
+                   runtime=PythonRuntime,
+                   phases=Phases):
+    def init_variables(config):
+        return {"APP_NAME": config["globals"]["app"],
+                "BUCKET_NAME": config["globals"]["bucket"]}
     def init_install(config, runtime,
                      defaultdeps=DefaultDeps):
         commands=["apt-get update",
@@ -46,26 +64,14 @@ def init_buildspec(config,
             commands.append(command)
         return {"runtime-versions": {"python": runtime},                
                 "commands": commands}
-    def init_prebuild(config):
-        commands=[]
-        commands.append("APP_NAME=%s" % config["globals"]["app"])
-        commands.append("RAW_TAG=$(git describe --tags --abbrev=0)")
-        commands.append("MOD_TAG=$(echo \"$RAW_TAG\" | sed -e 's/\W/-/g')")
-        commands.append("if [ -n \"$RAW_TAG\" ]; then ARTIFACTS=$APP_NAME-$MOD_TAG.zip; else ARTIFACTS=$APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip; fi")        
-        commands.append("python test.py")
-        return {"commands": commands}
-    def init_build(config):
-        commands=["zip $ARTIFACTS -r %s/** -x */__pycache__/* */test.py" % config["globals"]["app"]]
-        return {"commands": commands}
-    def init_postbuild(config):
-        commands=["aws s3 cp $ARTIFACTS s3://%s/" % config["globals"]["bucket"]]
-        return {"commands": commands}
-    phases={"install": init_install(config, runtime),
-            "pre_build": init_prebuild(config),
-            "build": init_build(config),
-            "post_build": init_postbuild(config)}
+    def init_phase(phase):
+        return {"commands": phase}
+    phases_={"install": init_install(config, runtime),
+             "build": init_phase(phases["build"])}
+    env={"variables": init_variables(config)}
     return {"version": version,
-            "phases": phases}
+            "phases": phases_,
+            "env": env}
 
 def deploy_stack(cf, config,
                  stackfile=StackTemplate):

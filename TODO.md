@@ -1,39 +1,37 @@
 ### short
 
-- log RAW_TAG, MOD_TAG
-- move APP_NAME into env/variables
-- clean_artifacts.py
-
-### medium
-
-- test.py to force codebuild failure
+- single build phase
+- test build on test.py runtime error
 - codebuild notifications
 - slack alerts
 
-- lamdemo to require and symlink project
-  - requires lambada tags
-  - lookup deps from requirements.txt ?
+### medium
 
+- clean_artifacts.py
+- scripts/*.py to strip `.yaml` from $1 if not required
+- avoid coding codebuild failure into client project tests
+- remove burningmonk us-xxxx-x assets
 - clean up codebuild projects
 - remove managed policies
+- revert AWS support
 
 ### thoughts
 
 - test removing EVENT filter ?
   - no is required
-- pat as secret ?
+- PAT as secret ?
   - no because it's only needed at build time, not runtime
 - remove build end time from ping_build.py
   - no is useful if a build has completed
 - `fast` option to avoid zip/pip updates ?
   - probably not a lot of point if you have to add deps
-- add variable name for artifacts ?
-  - probably not worth it if you're going to code- generate buildspec
 - upgrade all scripts to boto3, taking yaml files ?
   - probably not worth it at this stage
 
 ### done
 
+- log RAW_TAG, MOD_TAG
+- move APP_NAME into env/variables
 - remove head filter
 - replace dots in tags
   - https://stackoverflow.com/questions/13043344/search-and-replace-in-bash-using-regular-expressions
