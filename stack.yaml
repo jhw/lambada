@@ -160,7 +160,12 @@ Resources:
             Principal:
               Service: "events.amazonaws.com"
             Action:
+              - "sns:CreateTopic"
+              - "sns:GetTopicAttributes"
+              - "sns:List*"
               - "sns:Publish"
+              - "sns:SetTopicAttributes"
+              - "sns:Subscribe"	    
             Resource:
               Ref: CodeBuildNotificationTopic
       Topics:
@@ -205,7 +210,12 @@ Resources:
         - PolicyDocument:
             Statement:
               - Action:
+                  - "sns:CreateTopic"
+                  - "sns:GetTopicAttributes"
+                  - "sns:List*"
                   - "sns:Publish"
+                  - "sns:SetTopicAttributes"
+                  - "sns:Subscribe"	    
                 Effect: Allow
                 Resource: '*'
             Version: '2012-10-17'
