@@ -143,5 +143,20 @@ Resources:
           PolicyName: code-build-notification-role-policy
     Type: AWS::IAM::Role
   CodeBuildNotificationTopic:
-    Properties: {}
+    Properties:
+      Subscription:
+        - Protocol: lambda
+          Endpoint:
+            Fn::GetAtt:
+              - CodeBuildNotificationFunction
+              - Arn
     Type: AWS::SNS::Topic
+  CodeBuildNotificationLambdaInvokePermission:
+    Properties:
+      Action: "lambda:InvokeFunction"
+      FunctionName:
+        Ref: CodeBuildNotificationFunction
+      Principal: "sns.amazonaws.com"
+      SourceArn:
+        Ref: CodeBuildNotificationTopic 
+    Type: AWS::Lambda::Permission
