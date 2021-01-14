@@ -163,14 +163,7 @@ Resources:
   SampleNotificationRule:
     Type: AWS::Events::Rule
     Properties:
-      EventPattern:
-        source:
-          - aws.codebuild
-        detail-type:
-          - "CodeBuild Build Phase Change"
-        detail:
-          build-status:
-            - SUCCEEDED
+      EventPattern: '{"source": ["aws.codebuild"], "detail-type": ["Codebuild Build Phase Change"], "detail": {"completed-phase": ["SUBMITTED", "PROVISIONING", "DOWNLOAD_SOURCE", "INSTALL", "PRE_BUILD", "BUILD", "POST_BUILD", "UPLOAD_ARTIFACTS", "FINALIZING"], "completed-phase-status": ["TIMED_OUT", "STOPPED", "FAILED", "SUCCEEDED", "FAULT", "CLIENT_ERROR"]}}'
       State: ENABLED
       Targets:
         - Arn:
