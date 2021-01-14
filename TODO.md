@@ -1,8 +1,9 @@
 ### short
 
+- try simplifying specified stages, states
+
 - slack webhooks
 
-- refactor notified stages and states
 - clean_artifacts.py
 - script to inspect cloudwatch logs
 
