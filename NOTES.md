@@ -1,3 +1,8 @@
+### codebuild notifications
+
+- https://stelligent.com/2017/10/24/get-notified-on-aws-codepipeline-errors/
+- https://medium.com/taptuit/add-notifications-to-your-aws-ci-cd-pipeline-251bba894360
+
 ### head filter 14/01/20
 
 - problem with head filter is that once you have defined a tag, the `git describe --tags` command returns that latest tag, regardles of what the current commit is

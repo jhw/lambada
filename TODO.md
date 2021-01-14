@@ -1,7 +1,10 @@
 ### short
 
-- cloudwatch event rule with event pattern
-- test notifications
+- test notification
+
+- extend number of states
+- apply to all stages, not just build
+
 - slack webhooks
 
 - clean_artifacts.py
@@ -37,6 +40,7 @@
 
 ### done
 
+- cloudwatch event rule with event pattern
 - test pushing sns message
 - sns/lambda connectivity
 - test capturing of build failure

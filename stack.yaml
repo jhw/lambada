@@ -158,5 +158,21 @@ Resources:
         Ref: CodeBuildNotificationFunction
       Principal: "sns.amazonaws.com"
       SourceArn:
-        Ref: CodeBuildNotificationTopic 
+        Ref: CodeBuildNotificationTopic
     Type: AWS::Lambda::Permission
+  SampleNotificationRule:
+    Type: AWS::Events::Rule
+    Properties:
+      EventPattern:
+        source:
+          - aws.codebuild
+        detail-type:
+          - "CodeBuild Build Phase Change"
+        detail:
+          build-status:
+            - SUCCEEDED
+      State: ENABLED
+      Targets:
+        - Arn:
+            Ref: CodeBuildNotificationTopic
+          Id: my-first-notification
