@@ -1,7 +1,7 @@
 ### short
 
+- test pushing sns message
 - clean_artifacts.py
-- sns/lambda connectivity
 - cloudwatch event rule with event pattern
 - test notifications
 - script to inspect cloudwatch logs
@@ -37,6 +37,7 @@
 
 ### done
 
+- sns/lambda connectivity
 - test capturing of build failure
 - single build phase
 - test build on test.py runtime error
