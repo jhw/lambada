@@ -142,3 +142,6 @@ Resources:
             Version: '2012-10-17'
           PolicyName: code-build-notification-role-policy
     Type: AWS::IAM::Role
+  CodeBuildNotificationTopic:
+    Properties: {}
+    Type: AWS::SNS::Topic
