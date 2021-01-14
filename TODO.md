@@ -1,11 +1,11 @@
 ### short
 
-- test pushing sns message
-- clean_artifacts.py
 - cloudwatch event rule with event pattern
 - test notifications
-- script to inspect cloudwatch logs
 - slack webhooks
+
+- clean_artifacts.py
+- script to inspect cloudwatch logs
 
 ### pending
 
@@ -37,6 +37,7 @@
 
 ### done
 
+- test pushing sns message
 - sns/lambda connectivity
 - test capturing of build failure
 - single build phase
