@@ -24,6 +24,18 @@ Parameters:
   CodeBuildImage:
     Type: String
     Default: aws/codebuild/standard:4.0
+  LambdaHandler:
+    Type: String
+    Default: "index.handler"
+  LambdaMemory:
+    Type: Number
+    Default: 128
+  LambdaTimeout:
+    Type: Number
+    Default: 30
+  LambdaRuntime:
+    Type: String
+    Default: python3.8
 Resources:
   CodeBuildProject:
     DependsOn:
@@ -74,7 +86,7 @@ Resources:
     Type: AWS::CodeBuild::Project
   CodeBuildSourceCredential:
     Type: AWS::CodeBuild::SourceCredential
-    Properties: 
+    Properties:
       Token:
         Ref: RepoPAT
       ServerType: GITHUB
@@ -91,4 +103,42 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AdministratorAccess
       Path: /
+    Type: AWS::IAM::Role
+  CodeBuildNotificationFunction:
+    Properties:
+      Code:
+        ZipFile: "def handler(event, context):\n  print (event)"
+      Handler:
+        Ref: LambdaHandler
+      MemorySize:
+        Ref: LambdaMemory
+      Role:
+        Fn::GetAtt:
+          - CodeBuildNotificationRole
+          - Arn
+      Runtime:
+        Ref: LambdaRuntime
+      Timeout:
+        Ref: LambdaTimeout
+    Type: AWS::Lambda::Function
+  CodeBuildNotificationRole:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+        Version: '2012-10-17'
+      Policies:
+        - PolicyDocument:
+            Statement:
+              - Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Effect: Allow
+                Resource: '*'
+            Version: '2012-10-17'
+          PolicyName: code-build-notification-role-policy
     Type: AWS::IAM::Role
