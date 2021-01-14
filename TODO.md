@@ -1,17 +1,15 @@
 ### short
 
-- topic policies
-
-- extend number of stages, states
-
 - slack webhooks
 
+- refactor notified stages and states
 - clean_artifacts.py
 - script to inspect cloudwatch logs
 
 ### pending
 
-- https://console.aws.amazon.com/support/home#/case/?displayId=7830810411&language=en
+- https://console.aws.amazon.com/support/home#/case/?displayId=7867317481&language=en
+- https://stackoverflow.com/questions/65725094/sns-topic-not-receiving-codebuild-notifications
 
 ### medium
 
@@ -39,6 +37,7 @@
 
 ### done
 
+- topic policies
 - project name ?
 - cloudwatch event rule role arn
 - test notification
