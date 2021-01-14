@@ -1,8 +1,9 @@
-### codebuild notifications
+### codebuild notifications 14/01/20
 
 - https://stelligent.com/2017/10/24/get-notified-on-aws-codepipeline-errors/
 - https://medium.com/taptuit/add-notifications-to-your-aws-ci-cd-pipeline-251bba894360
 - https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-notifications.html
+- https://stackoverflow.com/questions/62308836/unable-to-successfully-set-up-sns-on-codebuild-project-through-cft-but-works-man
 
 ### head filter 14/01/20
 

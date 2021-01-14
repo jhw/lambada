@@ -151,6 +151,21 @@ Resources:
               - CodeBuildNotificationFunction
               - Arn
     Type: AWS::SNS::Topic
+  CodeBuildNotificationTopicPolicy:
+    Properties:
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "events.amazonaws.com"
+            Action:
+              - "sns:Publish"
+            Resource:
+              Ref: CodeBuildNotificationTopic
+      Topics:
+        - Ref: CodeBuildNotificationTopic
+    Type: AWS::SNS::TopicPolicy
   CodeBuildNotificationLambdaInvokePermission:
     Properties:
       Action: "lambda:InvokeFunction"
