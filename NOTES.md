@@ -2,6 +2,7 @@
 
 - https://stelligent.com/2017/10/24/get-notified-on-aws-codepipeline-errors/
 - https://medium.com/taptuit/add-notifications-to-your-aws-ci-cd-pipeline-251bba894360
+- https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-notifications.html
 
 ### head filter 14/01/20
 
