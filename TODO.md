@@ -1,8 +1,11 @@
 ### short
 
-- codebuild notifications
-- test capturing of build failure
-- slack alerts
+- clean_artifacts.py
+- sns/lambda connectivity
+- cloudwatch event rule with event pattern
+- test notifications
+- script to inspect cloudwatch logs
+- slack webhooks
 
 ### pending
 
@@ -10,7 +13,6 @@
 
 ### medium
 
-- clean_artifacts.py
 - scripts/*.py to strip `.yaml` from $1 if not required
 - codebuild charts
 
@@ -35,6 +37,7 @@
 
 ### done
 
+- test capturing of build failure
 - single build phase
 - test build on test.py runtime error
 - log RAW_TAG, MOD_TAG
