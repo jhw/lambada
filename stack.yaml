@@ -114,14 +114,14 @@ Resources:
         Ref: LambdaMemory
       Role:
         Fn::GetAtt:
-          - CodeBuildNotificationRole
+          - CodeBuildNotificationFunctionRole
           - Arn
       Runtime:
         Ref: LambdaRuntime
       Timeout:
         Ref: LambdaTimeout
     Type: AWS::Lambda::Function
-  CodeBuildNotificationRole:
+  CodeBuildNotificationFunctionRole:
     Properties:
       AssumeRolePolicyDocument:
         Statement:
@@ -165,7 +165,30 @@ Resources:
     Properties:
       EventPattern: '{"source": ["aws.codebuild"], "detail-type": ["Codebuild Build Phase Change"], "detail": {"completed-phase": ["SUBMITTED", "PROVISIONING", "DOWNLOAD_SOURCE", "INSTALL", "PRE_BUILD", "BUILD", "POST_BUILD", "UPLOAD_ARTIFACTS", "FINALIZING"], "completed-phase-status": ["TIMED_OUT", "STOPPED", "FAILED", "SUCCEEDED", "FAULT", "CLIENT_ERROR"]}}'
       State: ENABLED
+      RoleArn:
+        Fn::GetAtt:
+          - SampleNotificationRuleRole
+          - Arn
       Targets:
         - Arn:
             Ref: CodeBuildNotificationTopic
-          Id: my-first-notification
+          Id: sample-notification
+  SampleNotificationRuleRole:
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+        Version: '2012-10-17'
+      Policies:
+        - PolicyDocument:
+            Statement:
+              - Action:
+                  - "sns:*"
+                Effect: Allow
+                Resource: '*'
+            Version: '2012-10-17'
+          PolicyName: sample-notification-rule-role-policy
+    Type: AWS::IAM::Role

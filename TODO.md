@@ -1,9 +1,8 @@
 ### short
 
-- test notification
+- project name ?
 
-- extend number of states
-- apply to all stages, not just build
+- extend number of stages, states
 
 - slack webhooks
 
@@ -40,6 +39,8 @@
 
 ### done
 
+- cloudwatch event rule role arn
+- test notification
 - cloudwatch event rule with event pattern
 - test pushing sns message
 - sns/lambda connectivity
