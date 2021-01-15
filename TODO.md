@@ -1,17 +1,18 @@
-### short
+### short [webhooks]
 
-- pass webhook as arg
-
-- slack webhooks
+- sample post
+- webhook to post
 
 ### medium
 
+- how to make repl loop shorter ?
+- move build steps externally ?
 - script to inspect cloudwatch logs
   - requires outputs
-
-- better input template formatting
-
+- better quote handling in input template
 - codebuild charts
+
+### cleanup
 
 - remove burningmonk us-xxxx-x assets
 - clean up codebuild projects
@@ -43,6 +44,9 @@
 
 ### done
 
+- pass url as argument
+- pass webhook as arg
+- move webhook externally
 - convert template to JSON
 - clean_artifacts.py
 - scripts/*.py to strip `.yaml` from $1 if not required

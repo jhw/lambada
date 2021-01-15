@@ -33,6 +33,8 @@ BuildPhase=yaml.safe_load("""
 
 Phases={"build": BuildPhase}
 
+WebhookLambda=open("./webhook.py").read()
+
 def init_buildspec(config,
                    version=CodeBuildVersion,                   
                    runtime=PythonRuntime,
@@ -75,19 +77,21 @@ def init_buildspec(config,
             "env": env}
 
 def deploy_stack(cf, config,
-                 stackfile=StackTemplate):
+                 stackfile=StackTemplate,
+                 webhooktemp=WebhookLambda):
     def stack_exists(cf, stackname):
         stacknames=[stack["StackName"]
                     for stack in cf.describe_stacks()["Stacks"]]
         return stackname in stacknames
-    def init_params(params, buildspec):
+    def init_params(params, buildspec, webhook):
         return {"AppName": params["globals"]["app"],
                 "StagingBucket": params["globals"]["bucket"],
                 "RepoOwner": params["repo"]["owner"],
                 "RepoName": params["repo"]["name"],
                 "RepoBranch": params["repo"]["branch"],
                 "RepoPAT": params["repo"]["PAT"],
-                "CodeBuildBuildSpec": yaml.safe_dump(buildspec)}    
+                "CodeBuildBuildSpec": yaml.safe_dump(buildspec),
+                "WebhookLambda": webhook}
         return fn(aws_format(modkwargs))
     def format_params(params):
         return [{"ParameterKey": k,
@@ -97,9 +101,13 @@ def deploy_stack(cf, config,
     action="update" if stack_exists(cf, stackname) else "create"
     fn=getattr(cf, "%s_stack" % action)
     buildspec=init_buildspec(config)
+    print ("--- buildspec.yaml")
     print (yaml.safe_dump(buildspec,
                           default_flow_style=False))
-    params=init_params(config, buildspec)
+    webhook=webhooktemp.format(webhook_url=config["slack"]["webhook"])
+    print ("--- webhook ---")
+    print (webhook)
+    params=init_params(config, buildspec, webhook)    
     body=open(stackfile).read()
     fn(StackName=stackname,
        Parameters=format_params(params),

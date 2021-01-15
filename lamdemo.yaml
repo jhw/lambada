@@ -7,6 +7,8 @@ repo:
   name: lamdemo
   branch: master
   PAT: fcf4900c54ba4c7da53c89f2e3223ff50f555f5e
+slack:
+  webhook: https://hooks.slack.com/services/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
 deps:
   - name: lxml
   - name: requests

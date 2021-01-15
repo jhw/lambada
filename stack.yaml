@@ -13,6 +13,8 @@ Parameters:
     Type: String
   RepoPAT:
     Type: String
+  WebhookLambda:
+    Type: String
   CodeBuildBuildSpec:
     Type: String
   CodeBuildType:
@@ -107,7 +109,8 @@ Resources:
   CodeBuildNotificationFunction:
     Properties:
       Code:
-        ZipFile: "def handler(event, context):\n  print (event)"
+        ZipFile:
+          Ref: WebhookLambda
       Handler:
         Ref: LambdaHandler
       MemorySize:
