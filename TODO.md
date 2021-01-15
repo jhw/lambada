@@ -1,10 +1,8 @@
 ### short
 
-- see if EventPattern can be expanded
-
 - clean_artifacts.py
-- script to inspect cloudwatch logs
-- how to set event subject
+- script to inspect cloudwatch logs ?
+- how to set event subject ?
 - reduce number of notifications ?
 - slack webhooks
 
@@ -20,6 +18,8 @@
 
 ### thoughts
 
+- expand EventPattern ?
+  - simply not worth it; it works and is what it is
 - test removing EVENT filter ?
   - no is required
 - PAT as secret ?
