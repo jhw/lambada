@@ -2,7 +2,6 @@
 
 - see if EventPattern can be expanded
 
-- reduce sns permissions down to sns:Publish
 - see if sns topic policy is required
 - see if cloudwatch event rule role is required
 
@@ -37,6 +36,7 @@
 
 ### done
 
+- reduce sns permissions down to sns:Publish
 - restrict cloudwatch event permissions to sns:publish
 - rename and move lambda invoke permission
 - rename SampleNotification as CloudWatchEvent
