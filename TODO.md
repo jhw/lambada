@@ -2,9 +2,6 @@
 
 - see if EventPattern can be expanded
 
-- see if sns topic policy is required
-- see if cloudwatch event rule role is required
-
 - clean_artifacts.py
 - script to inspect cloudwatch logs
 - how to set event subject
@@ -36,6 +33,8 @@
 
 ### done
 
+- see if cloudwatch event rule role is required
+- see if sns topic policy is required
 - reduce sns permissions down to sns:Publish
 - restrict cloudwatch event permissions to sns:publish
 - rename and move lambda invoke permission

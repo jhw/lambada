@@ -184,10 +184,6 @@ Resources:
           - project_name:
               Ref: CodeBuildProject
       State: ENABLED
-      RoleArn:
-        Fn::GetAtt:
-          - CloudWatchEventRuleRole
-          - Arn
       Targets:
         - Arn:
             Ref: CodeBuildNotificationTopic
@@ -204,22 +200,3 @@ Resources:
               completed-phase-status: "$.detail.completed-phase-status"
             InputTemplate: |
               "Build '<build-id>' for build project '<project-name>' has completed the build phase of '<completed-phase>' with a status of '<completed-phase-status>'."
-  CloudWatchEventRuleRole:
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Action: sts:AssumeRole
-            Effect: Allow
-            Principal:
-              Service: events.amazonaws.com
-        Version: '2012-10-17'
-      Policies:
-        - PolicyDocument:
-            Statement:
-              - Action:
-                  - "sns:Publish"
-                Effect: Allow
-                Resource: '*'
-            Version: '2012-10-17'
-          PolicyName: cloudwatch-event-rule-role-policy
-    Type: AWS::IAM::Role
