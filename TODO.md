@@ -1,17 +1,14 @@
-### short [webhooks]
+### short
 
-- test failure
-
-- mock slack webhook to enable webhook testing
-- better webhook message highlighting, particularly of errors
+- new assets folder for testing
+- move build steps into assets
+- webhook.py testing/mocking
+- ignore certain statuses
+- write up webhook process
+- webhook error message highlighting
 
 ### medium
 
-- script to auto- generate new lamdemo tags
-- restrict number of messages being sent
-- script to inspect cloudwatch logs
-  - requires outputs
-- better quote handling in input template
 - codebuild charts
 
 ### cleanup
@@ -23,15 +20,19 @@
 
 ### thoughts
 
+- script to auto- bump lamdemo ?
+  - probably not worth it now
+- better quote handling in input template ?
+  - simply can't be bothered now
+- script to inspect cloudwatch logs ?
+  - doesn't seem worth it if webhook is working
+- restrict number of messages being sent ?
 - move build steps externally ?
   - don't think it's worth it
-- fix input templating quotes ?
-  - too hard, am losing the will to live
 - consider moving webhook lambda, event pattern, event template into deploy script as args ?
   - feels like a lot of work, just need to get it over the line
   - also problems with respect to correct formatting of input template
 - avoid coding codebuild failure into client project tests ?
-- reduce number of notifications ?
 - how to set event subject ?
 - expand EventPattern ?
   - simply not worth it; it works and is what it is
@@ -48,6 +49,7 @@
 
 ### done
 
+- test failure
 - pass webhook url as environment variable
 - configure logging and check "slack says" message
 - webhook to post
