@@ -1,9 +1,13 @@
 ### short [webhooks]
 
-- webhook to post
+- test failure
+- pass webhook url as environment variable
+- mock slack webhook to enable webhook testing
+- better webhook message highlighting, particularly of errors
 
 ### medium
 
+- restrict number of messages being sent
 - how to make repl loop shorter ?
 - move build steps externally ?
 - script to inspect cloudwatch logs
@@ -43,6 +47,8 @@
 
 ### done
 
+- configure logging and check "slack says" message
+- webhook to post
 - sample post
 - pass url as argument
 - pass webhook as arg
