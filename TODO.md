@@ -1,27 +1,22 @@
 ### short
 
-- answer stack overflow and aws mails
-- rename sample as cloudwatch
+- rename and move lambda invoke permission
+- rename SampleNotification as CloudWatchEvent
+- see if EventPattern can be expanded
+- reduce sns permissions down to sns:Publish
+- see if sns topic policy is required
+- see if cloudwatch event rule role is required
+
 - clean_artifacts.py
 - script to inspect cloudwatch logs
-- do you need sns topic policy ?
-- do you need notification role ?
-- see if EventPattern can be specified inline
-- see if IAM wildcards can be reduced
 - how to set event subject
 - reduce number of notifications ?
 - slack webhooks
-
-### pending
-
-- https://console.aws.amazon.com/support/home#/case/?displayId=7867317481&language=en
-- https://stackoverflow.com/questions/65725094/sns-topic-not-receiving-codebuild-notifications
 
 ### medium
 
 - scripts/*.py to strip `.yaml` from $1 if not required
 - codebuild charts
-
 - avoid coding codebuild failure into client project tests
 - remove burningmonk us-xxxx-x assets
 - clean up codebuild projects
@@ -43,6 +38,8 @@
 
 ### done
 
+- https://console.aws.amazon.com/support/home#/case/?displayId=7867317481&language=en
+- https://stackoverflow.com/questions/65725094/sns-topic-not-receiving-codebuild-notifications
 - topic policies
 - project name ?
 - cloudwatch event rule role arn
