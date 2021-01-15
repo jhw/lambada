@@ -1,12 +1,13 @@
 ### short
 
+- convert template to JSON
 - script to inspect cloudwatch logs
 - slack webhooks
 
 ### medium
 
 - codebuild charts
-- avoid coding codebuild failure into client project tests
+
 - remove burningmonk us-xxxx-x assets
 - clean up codebuild projects
 - remove managed policies
@@ -14,6 +15,10 @@
 
 ### thoughts
 
+- consider moving webhook lambda, event pattern, event template into deploy script as args ?
+  - feels like a lot of work, just need to get it over the line
+  - also problems with respect to correct formatting of input template
+- avoid coding codebuild failure into client project tests ?
 - reduce number of notifications ?
 - how to set event subject ?
 - expand EventPattern ?
