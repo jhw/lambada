@@ -1,5 +1,7 @@
 ### short
 
+- pass git tag to webhook via event pattern ?
+
 - new assets folder for testing
 - move build steps into assets
 - webhook.py testing/mocking
