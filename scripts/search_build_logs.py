@@ -9,6 +9,7 @@ if __name__=="__main__":
         if len(sys.argv) < 4:
             raise RuntimeError("Please enter project, window, query")
         project, window, query = sys.argv[1:4]
+        project=project.split(".")[0] # just in case config specified
         if not re.search("^\\d+$", window):
             raise RuntimeError("window is invalid")
         window=int(window)

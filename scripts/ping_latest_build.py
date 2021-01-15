@@ -35,7 +35,7 @@ if __name__=="__main__":
     try:
         if len(sys.argv) < 2:
             raise RuntimeError("Please enter app name")
-        appname=sys.argv[1]
+        appname=sys.argv[1].split(".")[0] # just in case config specified
         ping_build(boto3.client("codebuild"), appname)
     except ClientError as error:
         print (error)

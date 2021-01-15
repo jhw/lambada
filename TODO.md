@@ -8,7 +8,6 @@
 
 ### medium
 
-- scripts/*.py to strip `.yaml` from $1 if not required
 - codebuild charts
 - avoid coding codebuild failure into client project tests
 - remove burningmonk us-xxxx-x assets
@@ -33,6 +32,7 @@
 
 ### done
 
+- scripts/*.py to strip `.yaml` from $1 if not required
 - see if cloudwatch event rule role is required
 - see if sns topic policy is required
 - reduce sns permissions down to sns:Publish
