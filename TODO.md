@@ -1,9 +1,6 @@
 ### short
 
-- clean_artifacts.py
-- script to inspect cloudwatch logs ?
-- how to set event subject ?
-- reduce number of notifications ?
+- script to inspect cloudwatch logs
 - slack webhooks
 
 ### medium
@@ -17,6 +14,8 @@
 
 ### thoughts
 
+- reduce number of notifications ?
+- how to set event subject ?
 - expand EventPattern ?
   - simply not worth it; it works and is what it is
 - test removing EVENT filter ?
@@ -32,6 +31,7 @@
 
 ### done
 
+- clean_artifacts.py
 - scripts/*.py to strip `.yaml` from $1 if not required
 - see if cloudwatch event rule role is required
 - see if sns topic policy is required
