@@ -1,7 +1,7 @@
 ### short
 
-- convert template to JSON
 - script to inspect cloudwatch logs
+  - requires outputs
 - slack webhooks
 
 ### medium
@@ -36,6 +36,7 @@
 
 ### done
 
+- convert template to JSON
 - clean_artifacts.py
 - scripts/*.py to strip `.yaml` from $1 if not required
 - see if cloudwatch event rule role is required

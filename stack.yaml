@@ -199,4 +199,4 @@ Resources:
               completed-phase: "$.detail.completed-phase"
               completed-phase-status: "$.detail.completed-phase-status"
             InputTemplate: |
-              "Build '<build-id>' for build project '<project-name>' has completed the build phase of '<completed-phase>' with a status of '<completed-phase-status>'."
+              "{\"build-id\": \"<build-id>\", \"project-name\": \"<project-name>\", \"completed-phase\": \"<completed-phase>\", \"completed-phase-status\": \"<completed-phase-status>\"}"
