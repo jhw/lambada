@@ -1,15 +1,14 @@
 ### short [webhooks]
 
 - test failure
-- pass webhook url as environment variable
+
 - mock slack webhook to enable webhook testing
 - better webhook message highlighting, particularly of errors
 
 ### medium
 
+- script to auto- generate new lamdemo tags
 - restrict number of messages being sent
-- how to make repl loop shorter ?
-- move build steps externally ?
 - script to inspect cloudwatch logs
   - requires outputs
 - better quote handling in input template
@@ -24,6 +23,8 @@
 
 ### thoughts
 
+- move build steps externally ?
+  - don't think it's worth it
 - fix input templating quotes ?
   - too hard, am losing the will to live
 - consider moving webhook lambda, event pattern, event template into deploy script as args ?
@@ -47,6 +48,7 @@
 
 ### done
 
+- pass webhook url as environment variable
 - configure logging and check "slack says" message
 - webhook to post
 - sample post

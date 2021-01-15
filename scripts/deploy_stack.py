@@ -78,7 +78,7 @@ def init_buildspec(config,
 
 def deploy_stack(cf, config,
                  stackfile=StackTemplate,
-                 webhooktemp=WebhookLambda):
+                 webhook=WebhookLambda):
     def stack_exists(cf, stackname):
         stacknames=[stack["StackName"]
                     for stack in cf.describe_stacks()["Stacks"]]
@@ -91,6 +91,7 @@ def deploy_stack(cf, config,
                 "RepoBranch": params["repo"]["branch"],
                 "RepoPAT": params["repo"]["PAT"],
                 "CodeBuildBuildSpec": yaml.safe_dump(buildspec),
+                "WebhookUrl": params["slack"]["webhook"],
                 "WebhookLambda": webhook}
         return fn(aws_format(modkwargs))
     def format_params(params):
@@ -104,9 +105,6 @@ def deploy_stack(cf, config,
     print ("--- buildspec.yaml")
     print (yaml.safe_dump(buildspec,
                           default_flow_style=False))
-    webhook=webhooktemp.format(webhook_url=config["slack"]["webhook"])
-    print ("--- webhook ---")
-    print (webhook)
     params=init_params(config, buildspec, webhook)    
     body=open(stackfile).read()
     fn(StackName=stackname,
