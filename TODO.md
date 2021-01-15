@@ -1,6 +1,7 @@
 ### short
 
 - see if EventPattern can be expanded
+
 - reduce sns permissions down to sns:Publish
 - see if sns topic policy is required
 - see if cloudwatch event rule role is required
