@@ -1,7 +1,5 @@
 ### short
 
-- rename and move lambda invoke permission
-- rename SampleNotification as CloudWatchEvent
 - see if EventPattern can be expanded
 - reduce sns permissions down to sns:Publish
 - see if sns topic policy is required
@@ -38,8 +36,12 @@
 
 ### done
 
+- rename and move lambda invoke permission
+- rename SampleNotification as CloudWatchEvent
+
 - https://console.aws.amazon.com/support/home#/case/?displayId=7867317481&language=en
 - https://stackoverflow.com/questions/65725094/sns-topic-not-receiving-codebuild-notifications
+
 - topic policies
 - project name ?
 - cloudwatch event rule role arn

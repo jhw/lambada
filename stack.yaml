@@ -142,6 +142,15 @@ Resources:
             Version: '2012-10-17'
           PolicyName: code-build-notification-role-policy
     Type: AWS::IAM::Role
+  CodeBuildNotificationFunctionInvokePermission:
+    Properties:
+      Action: "lambda:InvokeFunction"
+      FunctionName:
+        Ref: CodeBuildNotificationFunction
+      Principal: "sns.amazonaws.com"
+      SourceArn:
+        Ref: CodeBuildNotificationTopic
+    Type: AWS::Lambda::Permission
   CodeBuildNotificationTopic:
     Properties:
       Subscription:
@@ -170,16 +179,7 @@ Resources:
       Topics:
         - Ref: CodeBuildNotificationTopic
     Type: AWS::SNS::TopicPolicy
-  CodeBuildNotificationLambdaInvokePermission:
-    Properties:
-      Action: "lambda:InvokeFunction"
-      FunctionName:
-        Ref: CodeBuildNotificationFunction
-      Principal: "sns.amazonaws.com"
-      SourceArn:
-        Ref: CodeBuildNotificationTopic
-    Type: AWS::Lambda::Permission
-  SampleNotificationRule:
+  CloudWatchEventRule:
     Type: AWS::Events::Rule
     Properties:
       EventPattern:
@@ -190,12 +190,16 @@ Resources:
       State: ENABLED
       RoleArn:
         Fn::GetAtt:
-          - SampleNotificationRuleRole
+          - CloudWatchEventRuleRole
           - Arn
       Targets:
         - Arn:
             Ref: CodeBuildNotificationTopic
-          Id: sample-notification
+          Id:
+            Fn::Sub:
+              - "${project_name}-codebuild-notifications"
+              - project_name:
+                  Ref: CodeBuildProject
           InputTransformer:
             InputPathsMap:
               build-id: "$.detail.build-id"
@@ -204,7 +208,7 @@ Resources:
               completed-phase-status: "$.detail.completed-phase-status"
             InputTemplate: |
               "Build '<build-id>' for build project '<project-name>' has completed the build phase of '<completed-phase>' with a status of '<completed-phase-status>'."
-  SampleNotificationRuleRole:
+  CloudWatchEventRuleRole:
     Properties:
       AssumeRolePolicyDocument:
         Statement:
@@ -221,5 +225,5 @@ Resources:
                 Effect: Allow
                 Resource: '*'
             Version: '2012-10-17'
-          PolicyName: sample-notification-rule-role-policy
+          PolicyName: cloudwatch-event-rule-role-policy
     Type: AWS::IAM::Role
