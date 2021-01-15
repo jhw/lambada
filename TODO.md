@@ -1,13 +1,13 @@
 ### short
 
-- better input template formatting
+- slack webhooks
+
+### medium
 
 - script to inspect cloudwatch logs
   - requires outputs
 
-- slack webhooks
-
-### medium
+- better input template formatting
 
 - codebuild charts
 

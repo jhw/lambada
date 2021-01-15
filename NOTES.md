@@ -1,3 +1,15 @@
+### webhooks 15/01/20
+
+- https://api.slack.com/messaging/webhooks
+- create slack app
+- activate incoming webhooks
+- create channel for app
+- add new webhook to workspace
+- get url
+- pass url as argument
+- POST to url
+- highlight error messages
+
 ### codebuild notifications 14/01/20
 
 - https://stelligent.com/2017/10/24/get-notified-on-aws-codepipeline-errors/
