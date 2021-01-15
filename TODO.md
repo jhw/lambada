@@ -1,7 +1,10 @@
 ### short
 
+- better input template formatting
+
 - script to inspect cloudwatch logs
   - requires outputs
+
 - slack webhooks
 
 ### medium
@@ -15,6 +18,8 @@
 
 ### thoughts
 
+- fix input templating quotes ?
+  - too hard, am losing the will to live
 - consider moving webhook lambda, event pattern, event template into deploy script as args ?
   - feels like a lot of work, just need to get it over the line
   - also problems with respect to correct formatting of input template
