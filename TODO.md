@@ -1,11 +1,16 @@
 ### short
 
-- try simplifying specified stages, states
-
-- slack webhooks
-
+- answer stack overflow and aws mails
+- rename sample as cloudwatch
 - clean_artifacts.py
 - script to inspect cloudwatch logs
+- do you need sns topic policy ?
+- do you need notification role ?
+- see if EventPattern can be specified inline
+- see if IAM wildcards can be reduced
+- how to set event subject
+- reduce number of notifications ?
+- slack webhooks
 
 ### pending
 
