@@ -1,5 +1,7 @@
 ### short
 
+- pass webhook as arg
+
 - slack webhooks
 
 ### medium

@@ -10,6 +10,11 @@
 - POST to url
 - highlight error messages
 
+---
+
+- https://api.slack.com/apps
+- [select app] -> add features and functionality -> incoming webhooks -> add New Webhook to Workspace
+
 ### codebuild notifications 14/01/20
 
 - https://stelligent.com/2017/10/24/get-notified-on-aws-codepipeline-errors/
