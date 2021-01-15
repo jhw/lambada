@@ -221,7 +221,7 @@ Resources:
         - PolicyDocument:
             Statement:
               - Action:
-                  - "sns:*"
+                  - "sns:Publish"
                 Effect: Allow
                 Resource: '*'
             Version: '2012-10-17'

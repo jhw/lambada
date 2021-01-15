@@ -37,6 +37,7 @@
 
 ### done
 
+- restrict cloudwatch event permissions to sns:publish
 - rename and move lambda invoke permission
 - rename SampleNotification as CloudWatchEvent
 
