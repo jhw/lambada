@@ -169,11 +169,7 @@ Resources:
             Principal:
               Service: "events.amazonaws.com"
             Action:
-              - "sns:GetTopicAttributes"
-              - "sns:ListSubscriptionsByTopic"
               - "sns:Publish"
-              - "sns:SetTopicAttributes"
-              - "sns:Subscribe"
             Resource:
               Ref: CodeBuildNotificationTopic
       Topics:
