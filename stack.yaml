@@ -184,7 +184,7 @@ Resources:
     Properties:
       EventPattern:
         Fn::Sub:
-          - '{"source": ["aws.codebuild"], "detail-type": ["Codebuild Build Phase Change"], "detail": {"completed-phase": ["SUBMITTED", "PROVISIONING", "DOWNLOAD_SOURCE", "INSTALL", "PRE_BUILD", "BUILD", "POST_BUILD", "UPLOAD_ARTIFACTS", "FINALIZING"], "completed-phase-status": ["TIMED_OUT", "STOPPED", "FAILED", "SUCCEEDED", "FAULT", "CLIENT_ERROR"], "project-name": ["${project_name}"]}}'
+          - '{"source": ["aws.codebuild"], "detail-type": ["CodeBuild Build Phase Change"], "detail": {"completed-phase": ["SUBMITTED", "PROVISIONING", "DOWNLOAD_SOURCE", "INSTALL", "PRE_BUILD", "BUILD", "POST_BUILD", "UPLOAD_ARTIFACTS", "FINALIZING"], "completed-phase-status": ["TIMED_OUT", "STOPPED", "FAILED", "SUCCEEDED", "FAULT", "CLIENT_ERROR"], "project-name": ["${project_name}"]}}'
           - project_name:
               Ref: CodeBuildProject
       State: ENABLED
@@ -196,6 +196,9 @@ Resources:
         - Arn:
             Ref: CodeBuildNotificationTopic
           Id: sample-notification
+          InputPath: '{"build-id":"$.detail.build-id","project-name":"$.detail.project-name","completed-phase":"$.detail.completed-phase","completed-phase-status":"$.detail.completed-phase-status"}'
+          InputTransformer:
+            InputTemplate: "Build '<build-id>' for build project '<project-name>' has completed the build phase of '<completed-phase>' with a status of '<completed-phase-status>'."
   SampleNotificationRuleRole:
     Properties:
       AssumeRolePolicyDocument:
