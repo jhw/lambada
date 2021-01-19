@@ -1,13 +1,19 @@
 ### short
 
-- pass git tag to webhook via event pattern ?
-
+- re- test process
 - new assets folder for testing
 - move build steps into assets
+- filter out stages/statuses
+  - initial step
+  - any failure
+  - build stage
+- change build icon
+- buildspec to save artifacts in tag name
+- webhook to load artifacts and report tag
+
 - webhook.py testing/mocking
-- ignore certain statuses
 - write up webhook process
-- webhook error message highlighting
+- highlight webhook error message
 
 ### medium
 
