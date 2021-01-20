@@ -1,17 +1,17 @@
 ### short
 
-- webhook.py testing
+- buildspec to save head, body artifacts
+  - head to use build id in path and to contain tag
 
-- buildspec to save artifacts in tag name
-- webhook to load artifacts and report tag
-- link to codebuild logs
+- webhook to load head artifacts and include tag in webhook message
+  - webhook will need to load from s3
+  - means bucket will need to be pass to lambda as environment variable
+
+- slack webhook to link to codebuild logs
 
 ### medium
 
 - codebuild charts
-
-### cleanup
-
 - remove burningmonk us-xxxx-x assets
 - clean up codebuild projects
 - remove managed policies
@@ -53,6 +53,7 @@
 
 ### done
 
+- webhook.py testing
 - highlight webhook error message
 - write up webhook process
 - change build icon
