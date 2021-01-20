@@ -2,7 +2,7 @@ import json, os
 
 from urllib import request
 
-StackMessage="project `%s` build `%s` phase `%s` - `%s`"
+StackMessage="%s | phase `%s` | status `%s`"
 
 def post_json(url, struct):
     req=request.Request(url, method="POST")
@@ -19,14 +19,12 @@ def handle_record(record,
                   url=os.environ["WEBHOOK_URL"]):
     message=parse_message(record["Sns"]["Message"])
     print (message)
-    projectname, buildid = message["build-id"].split("/")
-    text=template % (projectname,
-                     buildid,                     
+    text=template % (message["build-id"],
                      message["completed-phase"],
-                     message["completed-phase-status"])
-    print (text)
-    struct={"text": text}
-    resp=post_json(url, struct)
+                     message["completed-phase-status"])    
+    req={"text": text}
+    print (req)
+    resp=post_json(url, req)
     print (resp)
     
 def handler(event, context):
