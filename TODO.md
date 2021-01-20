@@ -1,19 +1,12 @@
 ### short
 
-- re- test process
+- webhook.py testing/mocking
+- highlight webhook error message
+
 - new assets folder for testing
 - move build steps into assets
-- filter out stages/statuses
-  - initial step
-  - any failure
-  - build stage
-- change build icon
 - buildspec to save artifacts in tag name
 - webhook to load artifacts and report tag
-
-- webhook.py testing/mocking
-- write up webhook process
-- highlight webhook error message
 
 ### medium
 
@@ -28,6 +21,9 @@
 
 ### thoughts
 
+- filter out stages/statuses ?
+  - no because gives less info
+  - solution is to have shorter messages
 - script to auto- bump lamdemo ?
   - probably not worth it now
 - better quote handling in input template ?
@@ -57,6 +53,9 @@
 
 ### done
 
+- write up webhook process
+- change build icon
+- re- test process
 - test failure
 - pass webhook url as environment variable
 - configure logging and check "slack says" message

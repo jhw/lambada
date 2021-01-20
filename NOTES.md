@@ -3,7 +3,8 @@
 - https://api.slack.com/messaging/webhooks
 - https://api.slack.com/apps?new_app=1
 - enable incoming webhooks
-- add webhook
+- add webhook to app
+- add app icon
 
 ### webhooks 15/01/20
 
