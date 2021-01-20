@@ -1,12 +1,10 @@
 ### short
 
-- webhook.py testing/mocking
-- highlight webhook error message
+- webhook.py testing
 
-- new assets folder for testing
-- move build steps into assets
 - buildspec to save artifacts in tag name
 - webhook to load artifacts and report tag
+- link to codebuild logs
 
 ### medium
 
@@ -21,6 +19,8 @@
 
 ### thoughts
 
+- new assets folder for testing ?
+  - not clear its worth it
 - filter out stages/statuses ?
   - no because gives less info
   - solution is to have shorter messages
@@ -53,6 +53,7 @@
 
 ### done
 
+- highlight webhook error message
 - write up webhook process
 - change build icon
 - re- test process
