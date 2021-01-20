@@ -8,19 +8,6 @@ Succeeded="SUCCEEDED"
 
 Green, Red = "#2eb67d", "#e01e5a"
 
-def is_localhost():
-    return ("HOME" in os.environ and
-            "justin" in os.environ["HOME"])
-
-def mock_webhook(fn):
-    def wrapped(url, struct):
-        if is_localhost():
-            return (url, struct)
-        else:
-            return fn(url, struct)
-    return wrapped
-
-@mock_webhook
 def post_json(url, struct):
     req=request.Request(url, method="POST")
     req.add_header("Content-Type", "application/json")
@@ -55,5 +42,5 @@ if __name__=="__main__":
     import yaml
     config=yaml.safe_load(open("lamdemo.yaml").read())
     os.environ["WEBHOOK_URL"]=config["slack"]["webhook"]
-    event={"Records": [{"Sns": {"Message": "\"{'build-id': 'hello-world', 'completed-phase': 'foo', 'completed-phase-status': 'bar'}\"\n\n"}}]}
+    event={"Records": [{"Sns": {"Message": "\"{'build-id': 'testing-123', 'completed-phase': 'TEST', 'completed-phase-status': 'SUCCEEDED'}\"\n\n"}}]}
     handler(event, None)
