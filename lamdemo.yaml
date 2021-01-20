@@ -8,7 +8,7 @@ repo:
   branch: master
   PAT: fcf4900c54ba4c7da53c89f2e3223ff50f555f5e
 slack:
-  webhook: https://hooks.slack.com/services/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
+  webhook: https://hooks.slack.com/services/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
 deps:
   - name: lxml
   - name: requests
