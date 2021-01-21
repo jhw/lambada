@@ -1,9 +1,8 @@
 ### short
 
-- clean up codebuild projects
-
 ### medium
 
+- pass git tag to cloudwatch events 
 - codebuild charts
 
 ### thoughts
@@ -48,6 +47,7 @@
 
 ### done
 
+- clean up codebuild projects
 - remove managed policies
 - revert AWS support
 - remove burningmonk us-xxxx-x assets
