@@ -104,9 +104,19 @@ Resources:
             Principal:
               Service: codebuild.amazonaws.com
         Version: '2012-10-17'
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AdministratorAccess
-      Path: /
+      Policies:
+        - PolicyDocument:
+            Statement:
+              - Action:
+                  - codebuild:*
+                  - s3:*
+                  - cloudwatch:*
+                  - logs:*
+                  - events:*
+                Effect: Allow
+                Resource: '*'
+            Version: '2012-10-17'
+          PolicyName: code-build-role-policy
     Type: AWS::IAM::Role
   CodeBuildNotificationFunction:
     Properties:
