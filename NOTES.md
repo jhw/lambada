@@ -1,3 +1,21 @@
+### buildspec head artifacts 22/01/20
+
+- it would be nice to be able to report the tag in the slack messages
+- but how to get the tag name into the notification channel ?
+- would be nice to be able to send it as part of notifications
+- but how to export tag name from codebuild into notification channel ?
+- feels like you would need codebuild custom notification and haven't seen any support for that anywhere
+
+- alternative mechanism would be to dump it so s3 as part of a header file
+- but this would have to be done as part of build phase, so wouldn't be available to all phases
+- so feels like a lot of work for little benefit
+
+- the event notification channel feels like a much better solution, if a way can be found
+
+- but overall it might just be better to provide a link to the codebuild logs, which you can inspect and see the tag there
+- maybe reporting the tag in slack is overkill
+- and you should only have occasional tags, its not like they are going to overlap
+
 ### webhooks 20/01/20
 
 - https://api.slack.com/messaging/webhooks

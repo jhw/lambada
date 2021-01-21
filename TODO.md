@@ -1,17 +1,11 @@
 ### short
 
-- buildspec to save head, body artifacts
-  - head to use build id in path and to contain tag
-
-- webhook to load head artifacts and include tag in webhook message
-  - webhook will need to load from s3
-  - means bucket will need to be pass to lambda as environment variable
-
 - slack webhook to link to codebuild logs
 
 ### medium
 
 - codebuild charts
+
 - remove burningmonk us-xxxx-x assets
 - clean up codebuild projects
 - remove managed policies
@@ -19,6 +13,8 @@
 
 ### thoughts
 
+- buildspec to save head artifacts ?
+  - no; notes
 - new assets folder for testing ?
   - not clear its worth it
 - filter out stages/statuses ?
