@@ -109,10 +109,12 @@ Resources:
             Statement:
               - Action:
                   - codebuild:*
-                  - s3:*
-                  - cloudwatch:*
-                  - logs:*
                   - events:*
+                  - s3:PutObject
+                  - cloudwatch:GetMetricStatistics
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
                 Effect: Allow
                 Resource: '*'
             Version: '2012-10-17'
