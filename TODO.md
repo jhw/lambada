@@ -1,20 +1,23 @@
 ### short
 
-- slack webhook to link to codebuild logs
+- clean up codebuild projects
+- remove burningmonk us-xxxx-x assets
+- revert AWS support
 
 ### medium
 
 - codebuild charts
 
-- remove burningmonk us-xxxx-x assets
-- clean up codebuild projects
 - remove managed policies
-- revert AWS support
 
 ### thoughts
 
+- slack webhook to link to codebuild logs ?
+  - first problem is you need to get region
+  - second, what if aws change the url structure ?
+  - seems better just to leave it as is
 - buildspec to save head artifacts ?
-  - no; notes
+  - no; see notes
 - new assets folder for testing ?
   - not clear its worth it
 - filter out stages/statuses ?
