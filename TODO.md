@@ -1,14 +1,10 @@
 ### short
 
 - clean up codebuild projects
-- remove burningmonk us-xxxx-x assets
-- revert AWS support
 
 ### medium
 
 - codebuild charts
-
-- remove managed policies
 
 ### thoughts
 
@@ -52,6 +48,9 @@
 
 ### done
 
+- remove managed policies
+- revert AWS support
+- remove burningmonk us-xxxx-x assets
 - test removing webhook mocking
 - webhook.py testing
 - highlight webhook error message

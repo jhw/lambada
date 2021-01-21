@@ -111,7 +111,6 @@ Resources:
                   - codebuild:*
                   - events:*
                   - s3:PutObject
-                  - cloudwatch:GetMetricStatistics
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
