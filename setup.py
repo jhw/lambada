@@ -46,8 +46,8 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     # packages=setuptools.find_packages(),
-    packages=filter_packages("lambada"),
-    install_requires=filter_pip_dependencies(),
+    # packages=filter_packages("lambada"), # because lambada has no python packages :)
+    # install_requires=filter_pip_dependencies(), # and if it has no python packages it probably doesn't need dependencies either :)
     # https://stackoverflow.com/a/57932258/124179
     setup_requires=['setuptools_scm'],
     include_package_data=True
