@@ -33,7 +33,7 @@ def filter_pip_dependencies(root="requirements.txt"):
 
 setuptools.setup(
     name="lambada",
-    version="1.0.2",
+    version="1.0.3",
     author="jhw",
     author_email="justin.worrall@gmail.com",
     description="Lambda CI pipeline",
@@ -46,8 +46,8 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     # packages=setuptools.find_packages(),
-    # packages=filter_packages("lambada"), # because lambada has no python packages :)
-    # install_requires=filter_pip_dependencies(), # and if it has no python packages it probably doesn't need dependencies either :)
+    packages=filter_packages("lambada"),
+    install_requires=filter_pip_dependencies(),
     # https://stackoverflow.com/a/57932258/124179
     setup_requires=['setuptools_scm'],
     include_package_data=True
