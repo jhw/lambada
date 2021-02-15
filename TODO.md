@@ -1,9 +1,10 @@
 ### short
 
-- stack name should have -pipeline suffix ?
+- how to keep git and pip tags in sync
 
 ### medium
 
+- stack name should have -pipeline suffix ?
 - convert scripts to python
 - pass git tag to cloudwatch events 
 - codebuild charts
