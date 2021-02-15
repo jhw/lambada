@@ -1,7 +1,10 @@
 ### short
 
+- stack name should have -pipeline suffix ?
+
 ### medium
 
+- convert scripts to python
 - pass git tag to cloudwatch events 
 - codebuild charts
 

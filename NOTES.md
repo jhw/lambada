@@ -1,4 +1,10 @@
-### buildspec head artifacts 22/01/20
+### slack webhooks 15/02/21
+
+- if you already have a slack app then you don't need to create a new one to add a webhook; you can have multiple webhooks attached to a single app, it seems
+- just need to "add features" to app
+- then "enable webhooks" will take you into webhook addition territory
+
+### buildspec head artifacts 22/01/21
 
 - it would be nice to be able to report the tag in the slack messages
 - but how to get the tag name into the notification channel ?
@@ -16,7 +22,7 @@
 - maybe reporting the tag in slack is overkill
 - and you should only have occasional tags, its not like they are going to overlap
 
-### webhooks 20/01/20
+### webhooks 20/01/21
 
 - https://api.slack.com/messaging/webhooks
 - https://api.slack.com/apps?new_app=1
@@ -24,7 +30,7 @@
 - add webhook to app
 - add app icon
 
-### webhooks 15/01/20
+### webhooks 15/01/21
 
 - https://api.slack.com/messaging/webhooks
 - create slack app
@@ -41,14 +47,14 @@
 - https://api.slack.com/apps
 - [select app] -> add features and functionality -> incoming webhooks -> add New Webhook to Workspace
 
-### codebuild notifications 14/01/20
+### codebuild notifications 14/01/21
 
 - https://stelligent.com/2017/10/24/get-notified-on-aws-codepipeline-errors/
 - https://medium.com/taptuit/add-notifications-to-your-aws-ci-cd-pipeline-251bba894360
 - https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-notifications.html
 - https://stackoverflow.com/questions/62308836/unable-to-successfully-set-up-sns-on-codebuild-project-through-cft-but-works-man
 
-### head filter 14/01/20
+### head filter 14/01/21
 
 - problem with head filter is that once you have defined a tag, the `git describe --tags` command returns that latest tag, regardles of what the current commit is
 - (it doesn't get un- tagged by a commit)
@@ -56,7 +62,7 @@
 - so best just remove it, so you only get builds on tags
 - this is in fact a benefit as it removes the number of code build calls, and also makes pareto simpler in that you can only deploy on a tag
 
-### git tags 14/01/20
+### git tags 14/01/21
 
 ```
 commands.append("APP_NAME=%s" % config["globals"]["app"])
@@ -65,7 +71,7 @@ commands.append("MOD_TAG=$(echo \"$RAW_TAG\" | sed -e 's/\W/-/g')")
 commands.append("if [ -n \"$RAW_TAG\" ]; then ARTIFACTS=$APP_NAME-$MOD_TAG.zip; else ARTIFACTS=$APP_NAME-$CODEBUILD_RESOLVED_SOURCE_VERSION.zip; fi")
 ```
 
-### git tags 05/01/20
+### git tags 05/01/21
 
 - https://ruddra.com/aws-codebuild-use-git-tags/
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html
