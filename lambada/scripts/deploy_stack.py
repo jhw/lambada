@@ -4,8 +4,6 @@ import boto3, json, os, sys, yaml
 
 from botocore.exceptions import ClientError
 
-StackTemplate="stack.yaml"
-
 DefaultDeps=yaml.safe_load("""
 - name: pip
 - name: awscli
@@ -37,11 +35,13 @@ Phases={"build": BuildPhase}
 https://stackoverflow.com/questions/247770/how-to-retrieve-a-modules-path
 """
 
-def path_to_slack_webhook():
+def load_path(path):
     import lambada
-    return "%s/webhooks/slack.py" % lambada.__path__.__dict__["_path"][0]
+    return "%s/%s" % (lambada.__path__.__dict__["_path"][0], path)
 
-WebhookLambda=open(path_to_slack_webhook()).read()
+StackTemplate=open(load_path("assets/stack.yaml")).read()
+
+WebhookLambda=open(load_path("assets/webhook.py")).read()
 
 def init_buildspec(config,
                    version=CodeBuildVersion,                   
@@ -85,7 +85,7 @@ def init_buildspec(config,
             "env": env}
 
 def deploy_stack(cf, config,
-                 stackfile=StackTemplate,
+                 body=StackTemplate,
                  webhook=WebhookLambda):
     def stack_exists(cf, stackname):
         stacknames=[stack["StackName"]
@@ -114,7 +114,6 @@ def deploy_stack(cf, config,
     print (yaml.safe_dump(buildspec,
                           default_flow_style=False))
     params=init_params(config, buildspec, webhook)    
-    body=open(stackfile).read()
     fn(StackName=stackname,
        Parameters=format_params(params),
        TemplateBody=body,

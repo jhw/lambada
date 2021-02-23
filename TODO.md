@@ -1,9 +1,5 @@
 ### short
 
-- rename lambada/webhooks/slack.py as lambada/templates/webhook.py
-- move stack.yaml to lambada/templates
-- deploy_stack.py to manage stack as body rather than filename
-
 ### medium
 
 - how to keep git and pip tags in sync ?
@@ -54,6 +50,9 @@
 
 ### done
 
+- rename lambada/webhooks/slack.py as lambada/templates/webhook.py
+- move stack.yaml to lambada/templates
+- deploy_stack.py to manage stack as body rather than filename
 - clean up codebuild projects
 - remove managed policies
 - revert AWS support
