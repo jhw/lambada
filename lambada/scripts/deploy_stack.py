@@ -33,7 +33,15 @@ BuildPhase=yaml.safe_load("""
 
 Phases={"build": BuildPhase}
 
-WebhookLambda=open("lambada/webhooks/slack.py").read()
+"""
+https://stackoverflow.com/questions/247770/how-to-retrieve-a-modules-path
+"""
+
+def path_to_slack_webhook():
+    import lambada
+    return "%s/webhooks/slack.py" % lambada.__path__.__dict__["_path"][0]
+
+WebhookLambda=open(path_to_slack_webhook()).read()
 
 def init_buildspec(config,
                    version=CodeBuildVersion,                   
