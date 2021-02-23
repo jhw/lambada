@@ -1,9 +1,12 @@
 ### short
 
-- how to keep git and pip tags in sync
+- rename lambada/webhooks/slack.py as lambada/templates/webhook.py
+- move stack.yaml to lambada/templates
+- deploy_stack.py to manage stack as body rather than filename
 
 ### medium
 
+- how to keep git and pip tags in sync ?
 - stack name should have -pipeline suffix ?
 - convert scripts to python
 - pass git tag to cloudwatch events 
