@@ -33,7 +33,7 @@ BuildPhase=yaml.safe_load("""
 
 Phases={"build": BuildPhase}
 
-WebhookLambda=open("./webhook.py").read()
+WebhookLambda=open("webhook.py").read()
 
 def init_buildspec(config,
                    version=CodeBuildVersion,                   
