@@ -31,6 +31,8 @@ BuildPhase=yaml.safe_load("""
 
 Phases={"build": BuildPhase}
 
+StackNamePattern="%s-lambada-ci"
+
 """
 https://stackoverflow.com/questions/247770/how-to-retrieve-a-modules-path
 """
@@ -85,7 +87,8 @@ def init_buildspec(config,
             "env": env}
 
 def deploy_stack(cf, config,
-                 body=StackTemplate,
+                 stacknamepat=StackNamePattern,
+                 stackbody=StackTemplate,
                  webhook=WebhookLambda):
     def stack_exists(cf, stackname):
         stacknames=[stack["StackName"]
@@ -106,17 +109,17 @@ def deploy_stack(cf, config,
         return [{"ParameterKey": k,
                  "ParameterValue": v}
                 for k, v in params.items()]
-    stackname=config["globals"]["app"]
+    stackname=stacknamepat % config["globals"]["app"]
     action="update" if stack_exists(cf, stackname) else "create"
     fn=getattr(cf, "%s_stack" % action)
     buildspec=init_buildspec(config)
     print ("--- buildspec.yaml")
     print (yaml.safe_dump(buildspec,
                           default_flow_style=False))
-    params=init_params(config, buildspec, webhook)    
+    params=init_params(config, buildspec, webhook)
     fn(StackName=stackname,
        Parameters=format_params(params),
-       TemplateBody=body,
+       TemplateBody=stackbody,
        Capabilities=["CAPABILITY_IAM"])
     waiter=cf.get_waiter("stack_%s_complete" % action)
     waiter.wait(StackName=stackname)
