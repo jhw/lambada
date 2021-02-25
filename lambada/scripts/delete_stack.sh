@@ -6,5 +6,5 @@ then
     exit
 fi
 
-aws cloudformation delete-stack --stack-name $1
+aws cloudformation delete-stack --stack-name $1-lambada-ci
 

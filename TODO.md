@@ -1,9 +1,5 @@
 ### short
 
-- all scripts to use `-lambada-ci` suffix
-  - app.props with StackSuffix ?
-    - to be used by deployment also
-    
 - local staging bucket
 
 ### medium
@@ -13,6 +9,10 @@
 
 ### thoughts
 
+- do you really want separation between app name and stack name ?
+- `-lambada-ci` suffix to be stored in app.props ?
+  - then u have problems finding app.props if loaded as a dependency
+  - harcoding better for now probably
 - pass git tag to cloudwatch events  ?
   - how
 - how to keep git and pip tags in sync ?
@@ -56,6 +56,8 @@
 
 ### done
 
+- notes re multiple builds
+- all scripts to use `-lambada-ci` suffix
 - why are we getting two builds triggered on each commit ?
 - rename lambada/webhooks/slack.py as lambada/templates/webhook.py
 - move stack.yaml to lambada/templates

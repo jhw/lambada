@@ -12,4 +12,4 @@ then
     exit
 fi
 
-aws cloudformation describe-stack-events --stack-name $1 --query "StackEvents[].{\"1.Timestamp\":Timestamp,\"2.Id\":LogicalResourceId,\"3.Type\":ResourceType,\"4.Status\":ResourceStatus,\"5.Reason\":ResourceStatusReason}" --max-items $2
+aws cloudformation describe-stack-events --stack-name $1-lambada-ci --query "StackEvents[].{\"1.Timestamp\":Timestamp,\"2.Id\":LogicalResourceId,\"3.Type\":ResourceType,\"4.Status\":ResourceStatus,\"5.Reason\":ResourceStatusReason}" --max-items $2

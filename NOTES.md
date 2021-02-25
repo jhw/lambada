@@ -1,3 +1,31 @@
+### local staging bucket 26/02/21
+
+- note that bucket is used for two things
+  - download of git assets
+  - final build
+- not sure what format source will be saved in, but likely under /src
+- so want artifacts to be saved under /lambda/#{tag}.zip
+- add bucket to stack.yaml
+- remove StagingBucket parameter and replace with local bucket
+- remove bucket from config
+- deploy_stack.py no longer passes bucket
+- need to change construction of buildspec
+- BUCKET_NAME is now local artifacts bucket, not global bucket
+- change value of ARTIFACTS
+- artifacts script to look up src, lambdas
+
+### triggering of multiple builds 26/02/21
+
+- every time you push a tag of target repo, generates multiple codebuild processes
+- and no amount of deleting the AWS app or changing the git PAT seems to work
+- turns out you have a stray webhook on the git side
+- the AWS stack, specifically the codebuild project, must create a webhook on the target git repo
+- see github -> project -> settings -> webhooks
+- sometimes deleting the AWS project doesn't clean up the webhook, deletion must fail
+- if you then rebuild the AWS project, you now have two webhooks, probably pointing to an AWS project of the same name
+- haven't tested this but changing the AWS project name probably improves things
+- but simplest thing is just to clean up the webhook
+
 ### slack webhooks 15/02/21
 
 - if you already have a slack app then you don't need to create a new one to add a webhook; you can have multiple webhooks attached to a single app, it seems
