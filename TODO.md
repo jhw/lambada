@@ -1,6 +1,9 @@
 ### short
 
 - all scripts to use `-lambada-ci` suffix
+  - app.props with StackSuffix ?
+    - to be used by deployment also
+    
 - local staging bucket
 
 ### medium
