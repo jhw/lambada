@@ -1,7 +1,6 @@
 ### short
 
-- why are we getting two builds triggered on each commit ?
-- modify all scripts to use `-lambada-ci` suffix
+- all scripts to use `-lambada-ci` suffix
 - local staging bucket
 
 ### medium
@@ -54,6 +53,7 @@
 
 ### done
 
+- why are we getting two builds triggered on each commit ?
 - rename lambada/webhooks/slack.py as lambada/templates/webhook.py
 - move stack.yaml to lambada/templates
 - deploy_stack.py to manage stack as body rather than filename
