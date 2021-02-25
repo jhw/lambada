@@ -1,15 +1,19 @@
 ### short
 
+- why are we getting two builds triggered on each commit ?
+- modify all scripts to use `-lambada-ci` suffix
+- local staging bucket
+
 ### medium
 
-- how to keep git and pip tags in sync ?
-- stack name should have -pipeline suffix ?
 - convert scripts to python
-- pass git tag to cloudwatch events 
 - codebuild charts
 
 ### thoughts
 
+- pass git tag to cloudwatch events  ?
+  - how
+- how to keep git and pip tags in sync ?
 - slack webhook to link to codebuild logs ?
   - first problem is you need to get region
   - second, what if aws change the url structure ?
