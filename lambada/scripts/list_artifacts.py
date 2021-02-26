@@ -4,11 +4,9 @@ import boto3, sys
 
 from botocore.exceptions import ClientError
 
-def list_s3(s3, bucket, prefix):
+def list_s3(s3, bucket):
     paginator=s3.get_paginator("list_objects_v2")
     kwargs={"Bucket": bucket}
-    if prefix!="*":
-        kwargs["Prefix"]=prefix
     pages=paginator.paginate(**kwargs)
     for struct in pages:
         if "Contents" in struct:
@@ -17,10 +15,11 @@ def list_s3(s3, bucket, prefix):
 
 if __name__=="__main__":
     try:
-        if len(sys.argv) < 3:
-            raise RuntimeError("Please enter bucket, prefix")
-        bucket, prefix = sys.argv[1:3]
-        list_s3(boto3.client("s3"), bucket, prefix)
+        if len(sys.argv) < 2:
+            raise RuntimeError("Please enter app name")
+        appname=sys.argv[1].split(".")[0] # just in case config file specified
+        bucket="%s-artifacts" % appname
+        list_s3(boto3.client("s3"), bucket)
     except ClientError as error:
         print (error)
     except RuntimeError as error:

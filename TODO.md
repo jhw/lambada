@@ -1,8 +1,7 @@
 ### short
 
-- test deployment
-- list_artifacts.py
-- check if src, lambda paths collide 
+- delete stack to clean artifacts
+- test if you can use NO_ARTIFACTS
 
 ### medium
 
@@ -61,6 +60,9 @@
 
 ### done
 
+- check if src, lambda paths collide 
+- test deployment
+- list_artifacts.py
 - change value of buildspec ARTIFACTS
 - change buildspec BUCKET_NAME to be local bucket
 - deploy_stack.py should no longer pass bucket
