@@ -1,6 +1,5 @@
 ### short
 
-- add bucket to stack.yaml
 - remove StagingBucket parameter, replace with local bucket ref
 - deploy_stack.py should no longer pass bucket
 - change buildspec BUCKET_NAME to be local bucket
@@ -62,6 +61,7 @@
 
 ### done
 
+- add bucket to stack.yaml
 - remove bucket from config
 - notes re multiple builds
 - all scripts to use `-lambada-ci` suffix

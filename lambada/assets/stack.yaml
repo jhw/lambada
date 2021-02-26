@@ -41,6 +41,14 @@ Parameters:
     Type: String
     Default: python3.8
 Resources:
+  ArtifactsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName:
+        Fn::Sub:
+          - ${app_name}-artifacts
+          - app_name:
+              Ref: AppName
   CodeBuildProject:
     DependsOn:
       - CodeBuildSourceCredential
