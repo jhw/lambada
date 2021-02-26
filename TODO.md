@@ -1,6 +1,13 @@
 ### short
 
-- local staging bucket
+- add bucket to stack.yaml
+- remove StagingBucket parameter, replace with local bucket ref
+- remove bucket from config
+- deploy_stack.py should no longer pass bucket
+- change buildspec BUCKET_NAME to be local bucket
+- change value of buildspec ARTIFACTS
+- script to inspect value of artifacts bucket
+- possibly change paths if src, lambdas conflict
 
 ### medium
 
