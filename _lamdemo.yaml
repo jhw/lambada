@@ -1,7 +1,6 @@
 ---
 globals:
   app: lamdemo
-  bucket: null  # change
 repo:
   owner: jhw
   name: lamdemo

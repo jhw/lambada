@@ -2,7 +2,6 @@
 
 - add bucket to stack.yaml
 - remove StagingBucket parameter, replace with local bucket ref
-- remove bucket from config
 - deploy_stack.py should no longer pass bucket
 - change buildspec BUCKET_NAME to be local bucket
 - change value of buildspec ARTIFACTS
@@ -63,6 +62,7 @@
 
 ### done
 
+- remove bucket from config
 - notes re multiple builds
 - all scripts to use `-lambada-ci` suffix
 - why are we getting two builds triggered on each commit ?
