@@ -1,6 +1,5 @@
 ### short
 
-- change value of buildspec ARTIFACTS
 - script to inspect value of artifacts bucket
 - possibly change paths if src, lambdas conflict
 
@@ -58,6 +57,7 @@
 
 ### done
 
+- change value of buildspec ARTIFACTS
 - change buildspec BUCKET_NAME to be local bucket
 - deploy_stack.py should no longer pass bucket
 - remove StagingBucket parameter, replace with local bucket ref

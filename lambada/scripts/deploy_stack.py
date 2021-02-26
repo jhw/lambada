@@ -23,7 +23,7 @@ BuildPhase=yaml.safe_load("""
 - 'echo "RAW_TAG=$RAW_TAG"'
 - 'MOD_TAG=$(echo "$RAW_TAG" | sed -e "s/\W/-/g")'
 - 'echo "MOD_TAG=$MOD_TAG"'
-- 'ARTIFACTS=$APP_NAME-$MOD_TAG.zip'
+- 'ARTIFACTS=lambdas-$MOD_TAG.zip'
 - 'echo "ARTIFACTS=$ARTIFACTS"'
 - 'zip $ARTIFACTS -r $APP_NAME/** -x */__pycache__/* */test.py'
 - 'BUCKET_NAME=$APP_NAME-artifacts'
