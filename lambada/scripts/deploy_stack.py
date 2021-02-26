@@ -50,8 +50,7 @@ def init_buildspec(config,
                    runtime=PythonRuntime,
                    phases=Phases):
     def init_variables(config):
-        return {"APP_NAME": config["globals"]["app"],
-                "BUCKET_NAME": config["globals"]["bucket"]}
+        return {"APP_NAME": config["globals"]["app"]}
     def init_install(config, runtime,
                      defaultdeps=DefaultDeps):
         commands=["apt-get update",
@@ -96,7 +95,6 @@ def deploy_stack(cf, config,
         return stackname in stacknames
     def init_params(params, buildspec, webhook):
         return {"AppName": params["globals"]["app"],
-                "StagingBucket": params["globals"]["bucket"],
                 "RepoOwner": params["repo"]["owner"],
                 "RepoName": params["repo"]["name"],
                 "RepoBranch": params["repo"]["branch"],
