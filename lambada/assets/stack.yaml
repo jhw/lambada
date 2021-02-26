@@ -3,8 +3,6 @@ AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
   AppName:
     Type: String
-  StagingBucket:
-    Type: String
   RepoOwner:
     Type: String
   RepoName:
@@ -83,7 +81,7 @@ Resources:
       Artifacts:
         Type: S3
         Location:
-          Ref: StagingBucket
+          Ref: ArtifactsBucket
       SourceVersion:
         Ref: RepoBranch
       Triggers:
