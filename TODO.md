@@ -1,15 +1,19 @@
 ### short
 
-- script to inspect value of artifacts bucket
-- possibly change paths if src, lambdas conflict
+- test deployment
+- list_artifacts.py
+- check if src, lambda paths collide 
 
 ### medium
 
-- convert scripts to python
 - codebuild charts
 
 ### thoughts
 
+- convert scripts to python ?
+  - probably not worth it
+- codebuild charts ?
+  - probably not worth it
 - do you really want separation between app name and stack name ?
 - `-lambada-ci` suffix to be stored in app.props ?
   - then u have problems finding app.props if loaded as a dependency
