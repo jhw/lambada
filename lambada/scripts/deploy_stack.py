@@ -26,6 +26,8 @@ BuildPhase=yaml.safe_load("""
 - 'ARTIFACTS=$APP_NAME-$MOD_TAG.zip'
 - 'echo "ARTIFACTS=$ARTIFACTS"'
 - 'zip $ARTIFACTS -r $APP_NAME/** -x */__pycache__/* */test.py'
+- 'BUCKET_NAME=$APP_NAME-artifacts'
+- 'echo "BUCKET_NAME=$BUCKET_NAME"'
 - 'aws s3 cp $ARTIFACTS s3://$BUCKET_NAME/'
 """)
 
