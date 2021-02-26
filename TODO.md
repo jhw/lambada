@@ -1,11 +1,6 @@
 ### short
 
-- delete stack to clean artifacts
-- test if you can use NO_ARTIFACTS
-
 ### medium
-
-- codebuild charts
 
 ### thoughts
 
@@ -60,6 +55,8 @@
 
 ### done
 
+- delete stack to clean artifacts
+- test if you can use NO_ARTIFACTS
 - check if src, lambda paths collide 
 - test deployment
 - list_artifacts.py

@@ -79,9 +79,7 @@ Resources:
             - build_spec:
                 Ref: CodeBuildBuildSpec
       Artifacts:
-        Type: S3
-        Location:
-          Ref: ArtifactsBucket
+        Type: NO_ARTIFACTS
       SourceVersion:
         Ref: RepoBranch
       Triggers:
