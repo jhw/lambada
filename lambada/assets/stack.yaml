@@ -44,7 +44,7 @@ Resources:
     Properties:
       BucketName:
         Fn::Sub:
-          - ${app_name}-artifacts
+          - ${app_name}-lambada-artifacts
           - app_name:
               Ref: AppName
   CodeBuildProject:
@@ -59,7 +59,10 @@ Resources:
         Type:
           Ref: CodeBuildType
       Name:
-        Ref: AppName
+        Fn::Sub:
+          - ${app_name}-lambada-ci
+          - app_name:
+              Ref: AppName
       ServiceRole:
         Fn::GetAtt:
           - CodeBuildRole
