@@ -1,9 +1,5 @@
 ### short
 
-### layman
-
-- remove clean_artifacts.py
-
 ### medium
 
 ### thoughts
@@ -59,6 +55,7 @@
 
 ### done
 
+- remove layman clean_artifacts.py
 - delete stack to clean artifacts
 - test if you can use NO_ARTIFACTS
 - check if src, lambda paths collide 
