@@ -1,5 +1,9 @@
 ### short
 
+### layman
+
+- remove clean_artifacts.py
+
 ### medium
 
 ### thoughts
