@@ -9,6 +9,7 @@ Parameters:
     Type: String
   RepoBranch:
     Type: String
+    Default: master
   RepoPAT:
     Type: String
   WebhookUrl:

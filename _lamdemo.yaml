@@ -4,7 +4,6 @@ globals:
 repo:
   owner: jhw
   name: lamdemo
-  branch: master
   PAT: null  # change
 slack:
   webhook: null  # change
