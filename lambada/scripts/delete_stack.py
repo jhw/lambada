@@ -10,17 +10,20 @@ ArtifactsBucketPattern="%s-lambada-artifacts"
 
 def clean_artifacts(config):
     bucketname=ArtifactsBucketPattern % config["globals"]["app"]
+    print ("--- emptying %s ---" % bucketname)
+    s3=boto3.client("s3")
     paginator=s3.get_paginator("list_objects_v2")
     pages=paginator.paginate(Bucket=bucketname)
     for struct in pages:
         if "Contents" in struct:
             for obj in struct["Contents"]:
-                logging.info("deleting object %s" % obj["Key"])
+                print ("deleting object %s" % obj["Key"])
                 s3.delete_object(Bucket=bucketname,
                                  Key=obj["Key"])
 
 def delete_stack(config):
     stackname=StackNamePattern % config["globals"]["app"]
+    print ("--- deleting %s ---" % stackname)
     cf=boto3.client("cloudformation")
     cf.delete_stack(StackName=stackname)
     waiter=cf.get_waiter("stack_delete_complete")
@@ -39,11 +42,11 @@ if __name__=="__main__":
         clean_artifacts(config)
         delete_stack(config)
     except ClientError as error:
-        logging.error(error)
+        print (error)
     except WaiterError as error:
-        logging.error(error)                      
+        print (error)                      
     except RuntimeError as error:
-        logging.error(error)                      
+        print (error)                      
 
 
         

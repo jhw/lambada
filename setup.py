@@ -33,7 +33,7 @@ def filter_pip_dependencies(root="requirements.txt"):
 
 setuptools.setup(
     name="lambada",
-    version="1.0.13",
+    version="1.0.14",
     author="jhw",
     author_email="justin.worrall@gmail.com",
     description="Lambda CI pipeline",
