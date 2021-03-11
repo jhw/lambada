@@ -2,7 +2,7 @@
 
 import boto3, json, os, sys, yaml
 
-from botocore.exceptions import ClientError
+from botocore.exceptions import ClientError, WaiterError
 
 DefaultDeps=yaml.safe_load("""
 - name: pip
@@ -135,6 +135,8 @@ if __name__=="__main__":
         config=yaml.safe_load(open(configfile).read())    
         deploy_stack(boto3.client("cloudformation"), config)
     except ClientError as error:
+        print (error)
+    except WaiterError as error:
         print (error)
     except RuntimeError as error:
         print ("Error: %s" % str(error))

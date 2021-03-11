@@ -1,7 +1,5 @@
 ### short
 
-- delete_stack.py
-- add waiter to all scripts
 - test
 - new tag
 
@@ -60,6 +58,8 @@
 
 ### done
 
+- delete_stack.py
+- add waiter to all scripts
 - add default branch param
 - remove layman clean_artifacts.py
 - delete stack to clean artifacts
