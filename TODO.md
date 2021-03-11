@@ -1,5 +1,10 @@
 ### short
 
+- delete_stack.py
+- add waiter to all scripts
+- test
+- new tag
+
 ### medium
 
 ### thoughts
