@@ -1,7 +1,13 @@
 ### short
 
-- test
-- new tag
+- check __pycache__, *.pyc included in deployable
+- delete_stack.py
+  - components to accept aws client as first arg
+  - check artifacts bucket exists
+- SourceCredential to be part of separate stack
+  - python deploy/delete scripts with embedded template
+- include test deps in buildspec
+  - moto
 
 ### medium
 
@@ -58,6 +64,8 @@
 
 ### done
 
+- check master branch specified as default
+- test
 - delete_stack.py
 - add waiter to all scripts
 - add default branch param
