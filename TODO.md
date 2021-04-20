@@ -1,13 +1,10 @@
 ### short
 
-- check __pycache__, *.pyc included in deployable
-- delete_stack.py
-  - components to accept aws client as first arg
-  - check artifacts bucket exists
 - SourceCredential to be part of separate stack
-  - python deploy/delete scripts with embedded template
-- include test deps in buildspec
-  - moto
+- moto test deps
+- replace sns with direct lambda invocation
+- convert all scripts to python
+- check __pycache__, *.pyc included in deployable
 
 ### medium
 
