@@ -1,13 +1,9 @@
 ### short
 
-- deploy auth
-- update lamdemo auth arn
-- deploy stack
-- test tag creation
+- auth events/resources scripts
 
 ### medium
 
-- auth events/resources scripts
 - replace sns with direct lambda invocation
 - moto test deps
   - lamdemo to import moto
@@ -71,6 +67,10 @@
 
 ### done
 
+- deploy auth
+- update lamdemo auth arn
+- deploy stack
+- test tag creation
 - script to list auth
   - aws codebuild list-source-credentials
 - refactor pat_arn as auth  
