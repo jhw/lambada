@@ -1,8 +1,5 @@
 ### short
 
-- script to list auth
-  - aws codebuild list-source-credentials
-
 - deploy auth
 - update lamdemo auth arn
 - deploy stack
@@ -74,6 +71,8 @@
 
 ### done
 
+- script to list auth
+  - aws codebuild list-source-credentials
 - refactor pat_arn as auth  
 - rename pat as auth
 - deploy_pat to take command line arg
