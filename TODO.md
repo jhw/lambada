@@ -1,18 +1,21 @@
-### short [pat]
+### short
 
-- new pat required
-
-- refactor pat_arn name
-- events/resources scripts for pat
-- deploy_pat to take command line arg for PAT
-- replace deploy_pat.py with deploy_pat.sh
+- new pat
+- rename pat as auth
+- deploy_pat to take command line arg
+  - replace .py with .sh script
+- refactor pat_arn as auth  
+- auth events/resources scripts
 
 ### medium
 
 - replace sns with direct lambda invocation
 - moto test deps
-- convert all scripts to python
-- check __pycache__, *.pyc included in deployable
+  - lamdemo to import moto
+- remove __pycache__, *.pyc if part of deployable
+
+### long
+
 - eventbridge charts
 
 ### thoughts
