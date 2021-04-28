@@ -1,7 +1,5 @@
 ### short
 
-- delete_stack.py needs to check if bucket exists
-
 ### medium
 
 - SourceCredential to be part of separate stack
@@ -63,6 +61,7 @@
 
 ### done
 
+- delete_stack.py needs to check if bucket exists
 - bash scripts to split config arg and drop yaml
 - test lamdemo deployment
 - can't deploy project
