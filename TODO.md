@@ -1,12 +1,17 @@
 ### short
 
+- test lamdemo deployment
+
+- delete_stack.py needs to check if bucket exists
+- bash scripts to split config arg and drop yaml
+
+### medium
+
 - SourceCredential to be part of separate stack
 - moto test deps
 - replace sns with direct lambda invocation
 - convert all scripts to python
 - check __pycache__, *.pyc included in deployable
-
-### medium
 
 ### thoughts
 
@@ -61,6 +66,10 @@
 
 ### done
 
+- can't deploy project
+  - check lamdemo project webhooks
+  - new git tag
+  - new slack webhook
 - check master branch specified as default
 - test
 - delete_stack.py
