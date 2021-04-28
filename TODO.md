@@ -1,11 +1,12 @@
 ### short
 
-- auth events/resources scripts
+- check config deps vs default/test deps (ensure uniq)
 
 ### medium
 
+- auth events/resources scripts ?
+  - rename list_auth.py as list_auth_creds.py
 - replace sns with direct lambda invocation
-- moto test deps
   - lamdemo to import moto
 - remove __pycache__, *.pyc if part of deployable
 
@@ -67,6 +68,7 @@
 
 ### done
 
+- moto test deps
 - deploy auth
 - update lamdemo auth arn
 - deploy stack

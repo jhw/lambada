@@ -7,6 +7,8 @@ from botocore.exceptions import ClientError, WaiterError
 DefaultDeps=yaml.safe_load("""
 - name: pip
 - name: awscli
+- name: moto
+  version: 1.3.14  #  https://github.com/spulec/moto/issues/3535 
 """)
 
 CodeBuildVersion, PythonRuntime = "0.2", "3.8"
