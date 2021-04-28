@@ -1,7 +1,9 @@
 ### short [pat]
 
-- deploy_pat.py
 - delete_pat.py
+
+- test pat deployment/deletion
+- test stack deployment/deletion
 
 ### medium
 
@@ -63,6 +65,7 @@
 
 ### done
 
+- deploy_pat.py
 - delete_stack.py needs to check if bucket exists
 - bash scripts to split config arg and drop yaml
 - test lamdemo deployment

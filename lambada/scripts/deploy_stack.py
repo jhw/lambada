@@ -102,7 +102,6 @@ def deploy_stack(cf, config,
                 "CodeBuildBuildSpec": yaml.safe_dump(buildspec),
                 "WebhookUrl": params["slack"]["webhook"],
                 "WebhookLambda": webhook}
-        return fn(aws_format(modkwargs))
     def format_params(params):
         return [{"ParameterKey": k,
                  "ParameterValue": v}
