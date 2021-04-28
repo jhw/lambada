@@ -1,9 +1,9 @@
 ### short
 
-- new pat
-- rename pat as auth
 - deploy_pat to take command line arg
   - replace .py with .sh script
+
+- rename pat as auth
 - refactor pat_arn as auth  
 - auth events/resources scripts
 
@@ -71,6 +71,7 @@
 
 ### done
 
+- new pat
 - codebuild source auth [notes]
 - test stack deployment/deletion
 - test pat deployment/deletion
