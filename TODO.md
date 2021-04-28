@@ -1,7 +1,10 @@
 ### short [pat]
 
-- test pat deployment/deletion
-- test stack deployment/deletion
+- codebuild process no longer triggered :(
+
+- events/resources scripts for pat
+- deploy_pat to take command line arg for PAT
+- replace deploy_pat.py with deploy_pat.sh
 
 ### medium
 
@@ -64,6 +67,8 @@
 
 ### done
 
+- test stack deployment/deletion
+- test pat deployment/deletion
 - delete_pat.py
 - deploy_pat.py
 - delete_stack.py needs to check if bucket exists
