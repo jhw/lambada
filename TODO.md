@@ -1,7 +1,8 @@
 ### short [pat]
 
-- codebuild process no longer triggered :(
+- new pat required
 
+- refactor pat_arn name
 - events/resources scripts for pat
 - deploy_pat to take command line arg for PAT
 - replace deploy_pat.py with deploy_pat.sh
@@ -67,6 +68,7 @@
 
 ### done
 
+- codebuild source auth [notes]
 - test stack deployment/deletion
 - test pat deployment/deletion
 - delete_pat.py

@@ -10,6 +10,9 @@ Parameters:
   RepoBranch:
     Type: String
     Default: master
+  RepoPatArn:
+    Type: String
+    Default: master
   WebhookUrl:
     Type: String
   WebhookLambda:
@@ -65,6 +68,10 @@ Resources:
           - CodeBuildRole
           - Arn
       Source:
+        Auth:
+          Resource:
+            Ref: RepoPatArn
+          Type: OAUTH
         Location:
           Fn::Sub:
             - "https://github.com/${repo_owner}/${repo_name}.git"

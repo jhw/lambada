@@ -1,3 +1,8 @@
+### codebuild source credentuial 28/04/21
+
+- https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html
+- https://stackoverflow.com/questions/57066101/how-do-you-specify-github-access-token-with-codebuild-from-cloudformation
+
 ### stack creation failure 28/04/21
 
 ```
