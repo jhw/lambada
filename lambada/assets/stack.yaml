@@ -10,8 +10,6 @@ Parameters:
   RepoBranch:
     Type: String
     Default: master
-  RepoPAT:
-    Type: String
   WebhookUrl:
     Type: String
   WebhookLambda:
@@ -49,8 +47,6 @@ Resources:
           - app_name:
               Ref: AppName
   CodeBuildProject:
-    DependsOn:
-      - CodeBuildSourceCredential
     Properties:
       Environment:
         ComputeType:
@@ -96,13 +92,6 @@ Resources:
               Pattern: "refs/tags/.*"
               ExcludeMatchedPattern: false
     Type: AWS::CodeBuild::Project
-  CodeBuildSourceCredential:
-    Type: AWS::CodeBuild::SourceCredential
-    Properties:
-      Token:
-        Ref: RepoPAT
-      ServerType: GITHUB
-      AuthType: PERSONAL_ACCESS_TOKEN
   CodeBuildRole:
     Properties:
       AssumeRolePolicyDocument:

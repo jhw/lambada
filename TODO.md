@@ -1,10 +1,12 @@
-### short
+### short [pat]
+
+- deploy_pat.py
+- delete_pat.py
 
 ### medium
 
-- SourceCredential to be part of separate stack
-- moto test deps
 - replace sns with direct lambda invocation
+- moto test deps
 - convert all scripts to python
 - check __pycache__, *.pyc included in deployable
 

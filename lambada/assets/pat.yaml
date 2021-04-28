@@ -1,0 +1,14 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  PAT:
+    Type: String
+Resources:
+  SourceCredential:
+    Type: AWS::CodeBuild::SourceCredential
+    Properties:
+      Token:
+        Ref: PAT
+      ServerType: GITHUB
+      AuthType: PERSONAL_ACCESS_TOKEN
+
