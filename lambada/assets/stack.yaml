@@ -10,7 +10,7 @@ Parameters:
   RepoBranch:
     Type: String
     Default: master
-  RepoPatArn:
+  RepoAuth:
     Type: String
     Default: master
   WebhookUrl:
@@ -70,7 +70,7 @@ Resources:
       Source:
         Auth:
           Resource:
-            Ref: RepoPatArn
+            Ref: RepoAuth
           Type: OAUTH
         Location:
           Fn::Sub:

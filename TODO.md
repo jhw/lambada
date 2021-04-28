@@ -1,14 +1,16 @@
 ### short
 
-- deploy_pat to take command line arg
-  - replace .py with .sh script
+- script to list auth
+  - aws codebuild list-source-credentials
 
-- rename pat as auth
-- refactor pat_arn as auth  
-- auth events/resources scripts
+- deploy auth
+- update lamdemo auth arn
+- deploy stack
+- test tag creation
 
 ### medium
 
+- auth events/resources scripts
 - replace sns with direct lambda invocation
 - moto test deps
   - lamdemo to import moto
@@ -16,6 +18,7 @@
 
 ### long
 
+- create sample tag via Python
 - eventbridge charts
 
 ### thoughts
@@ -71,6 +74,10 @@
 
 ### done
 
+- refactor pat_arn as auth  
+- rename pat as auth
+- deploy_pat to take command line arg
+  - replace .py with .sh script
 - new pat
 - codebuild source auth [notes]
 - test stack deployment/deletion

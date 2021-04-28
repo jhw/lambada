@@ -99,7 +99,7 @@ def deploy_stack(cf, config,
         return {"AppName": params["globals"]["app"],
                 "RepoOwner": params["repo"]["owner"],
                 "RepoName": params["repo"]["name"],
-                "RepoPatArn": params["repo"]["pat_arn"],
+                "RepoAuth": params["repo"]["auth"],
                 "CodeBuildBuildSpec": yaml.safe_dump(buildspec),
                 "WebhookUrl": params["slack"]["webhook"],
                 "WebhookLambda": webhook}
