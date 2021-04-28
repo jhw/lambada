@@ -1,11 +1,12 @@
 ### short
 
-- check config deps vs default/test deps (ensure uniq)
-
 ### medium
 
+- check config deps vs default/test deps (ensure uniq)
 - auth events/resources scripts ?
   - rename list_auth.py as list_auth_creds.py
+- flatten eventbridge event config
+- add custom eventbridge router
 - replace sns with direct lambda invocation
   - lamdemo to import moto
 - remove __pycache__, *.pyc if part of deployable
