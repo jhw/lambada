@@ -1,9 +1,6 @@
 ### short
 
-- test lamdemo deployment
-
 - delete_stack.py needs to check if bucket exists
-- bash scripts to split config arg and drop yaml
 
 ### medium
 
@@ -66,6 +63,8 @@
 
 ### done
 
+- bash scripts to split config arg and drop yaml
+- test lamdemo deployment
 - can't deploy project
   - check lamdemo project webhooks
   - new git tag
