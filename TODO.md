@@ -1,7 +1,5 @@
 ### short [pat]
 
-- delete_pat.py
-
 - test pat deployment/deletion
 - test stack deployment/deletion
 
@@ -11,6 +9,7 @@
 - moto test deps
 - convert all scripts to python
 - check __pycache__, *.pyc included in deployable
+- eventbridge charts
 
 ### thoughts
 
@@ -65,6 +64,7 @@
 
 ### done
 
+- delete_pat.py
 - deploy_pat.py
 - delete_stack.py needs to check if bucket exists
 - bash scripts to split config arg and drop yaml
