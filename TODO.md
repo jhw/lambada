@@ -1,10 +1,12 @@
 ### short
 
+- flatten eventbridge event config
+
 ### medium
 
+- custom eventbridge router
 - script to search webhook logs
 - check config deps vs default/test deps (ensure uniq)
-- flatten eventbridge event config
 - lamdemo to import moto
 - remove *.pyc from s3 deployable
 
@@ -17,8 +19,6 @@
 
 - replace sns with direct lambda invocation ?
   - sns gives you a nice json message with records, which direct invocation does not
-- add custom eventbridge router ?
-  - probably not worth it
 - convert scripts to python ?
   - probably not worth it
 - codebuild charts ?
