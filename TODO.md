@@ -1,14 +1,13 @@
 ### short
 
-- flatten eventbridge event config
+- remove *.pyc from s3 deployable
+- custom eventbridge router
 
 ### medium
 
-- custom eventbridge router
 - script to search webhook logs
 - check config deps vs default/test deps (ensure uniq)
 - lamdemo to import moto
-- remove *.pyc from s3 deployable
 
 ### long
 
@@ -70,6 +69,7 @@
 
 ### done
 
+- flatten eventbridge event config
 - rename list_auth.py as list_auth_creds.py
 - scripts for auth events, auth resources
 - clean up stack resource names
