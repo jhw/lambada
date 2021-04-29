@@ -1,15 +1,15 @@
 ### short
 
+- rename list_auth.py as list_auth_creds.py
+- scripts for auth events, auth resources
+
 ### medium
 
+- script to search webhook logs
 - check config deps vs default/test deps (ensure uniq)
-- auth events/resources scripts ?
-  - rename list_auth.py as list_auth_creds.py
 - flatten eventbridge event config
-- add custom eventbridge router
-- replace sns with direct lambda invocation
-  - lamdemo to import moto
-- remove __pycache__, *.pyc if part of deployable
+- lamdemo to import moto
+- remove *.pyc from s3 deployable
 
 ### long
 
@@ -18,6 +18,10 @@
 
 ### thoughts
 
+- replace sns with direct lambda invocation ?
+  - sns gives you a nice json message with records, which direct invocation does not
+- add custom eventbridge router ?
+  - probably not worth it
 - convert scripts to python ?
   - probably not worth it
 - codebuild charts ?
@@ -69,6 +73,7 @@
 
 ### done
 
+- clean up stack resource names
 - moto test deps
 - deploy auth
 - update lamdemo auth arn
