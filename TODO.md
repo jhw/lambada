@@ -1,6 +1,6 @@
 ### short
 
-- custom eventbridge router
+- custom EventBridge router not matching pattern
 
 ### medium
 
