@@ -1,6 +1,5 @@
 ### short
 
-- remove *.pyc from s3 deployable
 - custom eventbridge router
 
 ### medium
@@ -69,6 +68,7 @@
 
 ### done
 
+- remove *.pyc from s3 deployable
 - flatten eventbridge event config
 - rename list_auth.py as list_auth_creds.py
 - scripts for auth events, auth resources

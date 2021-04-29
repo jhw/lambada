@@ -27,7 +27,7 @@ BuildPhase=yaml.safe_load("""
 - 'echo "MOD_TAG=$MOD_TAG"'
 - 'ARTIFACTS=lambdas-$MOD_TAG.zip'
 - 'echo "ARTIFACTS=$ARTIFACTS"'
-- 'zip $ARTIFACTS -r $APP_NAME/** -x */__pycache__/* */test.py'
+- 'zip $ARTIFACTS -r $APP_NAME/** -x */__pycache__/* *.pyc */test.py'
 - 'BUCKET_NAME=$APP_NAME-lambada-artifacts'
 - 'echo "BUCKET_NAME=$BUCKET_NAME"'
 - 'aws s3 cp $ARTIFACTS s3://$BUCKET_NAME/'
