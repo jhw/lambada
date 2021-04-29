@@ -1,8 +1,5 @@
 ### short
 
-- rename list_auth.py as list_auth_creds.py
-- scripts for auth events, auth resources
-
 ### medium
 
 - script to search webhook logs
@@ -73,6 +70,8 @@
 
 ### done
 
+- rename list_auth.py as list_auth_creds.py
+- scripts for auth events, auth resources
 - clean up stack resource names
 - moto test deps
 - deploy auth
