@@ -1,4 +1,13 @@
-### codebuild source credentuial 28/04/21
+### SNS and eventbridge 30/04/21
+
+- importance of SNS is that it wraps the raw message in an [SNS] envelope for nicer handling at the Lambda level; otherwise you just get a very raw template
+- is possible there are other benefits also
+- so sometimes it might feel like you are over- using AWS components but it's really just to enable a nicer flow
+- and eventbridge is really just a pattern matcher
+- which is useful when connected with dynamodb as allows you to route different messages coming from the DDB stream
+- sometime it feels like each AWS service is really just a single programming language feature
+
+### codebuild source credential 28/04/21
 
 - https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html
 - https://stackoverflow.com/questions/57066101/how-do-you-specify-github-access-token-with-codebuild-from-cloudformation
