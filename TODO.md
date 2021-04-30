@@ -1,12 +1,15 @@
 ### short
 
-- custom EventBridge router not matching pattern
+- script to search webhook logs
+- check codebuild custom deps vs default/test deps
+- lamdemo to import moto
 
 ### medium
 
-- script to search webhook logs
-- check config deps vs default/test deps (ensure uniq)
-- lamdemo to import moto
+### pending
+
+- custom event bus
+  - https://console.aws.amazon.com/support/home?#/case/?caseId=8281695661&displayId=8281695661&language=en
 
 ### long
 
