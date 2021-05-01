@@ -1,16 +1,9 @@
 ### short
 
-- SO mail re custom event bus
-- eventbus demo
-
-### pending
-
-- custom event bus
-  - https://console.aws.amazon.com/support/home?#/case/?caseId=8281695661&displayId=8281695661&language=en
+- retest
+- tag
 
 ### medium
-
-### long
 
 - create sample tag via Python
 - eventbridge charts
@@ -70,6 +63,8 @@
 
 ### done
 
+- custom event bus
+  - https://console.aws.amazon.com/support/home?#/case/?caseId=8281695661&displayId=8281695661&language=en
 - check codebuild custom deps vs default/test deps
 - script to search webhook logs
 - fix search build logs
