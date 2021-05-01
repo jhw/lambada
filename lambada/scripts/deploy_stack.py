@@ -59,9 +59,14 @@ def init_buildspec(config,
                      defaultdeps=DefaultDeps):
         commands=["apt-get update",
                   "apt-get install zip -y"]
-        deps=defaultdeps
+        deps={dep["name"]: dep
+              for dep in defaultdeps}
         if "deps" in config:
-            deps+=config["deps"]
+            for dep in config["deps"]:
+                if dep["name"] in deps:
+                    raise RuntimeError("duplicate %s dep" % dep["name"])
+                deps[dep["name"]]=dep
+        deps=list(deps.values())
         for dep in deps:
             if "repo" in dep:
                 host=dep["repo"]["host"]
@@ -123,7 +128,7 @@ def deploy_stack(cf, config,
        Capabilities=["CAPABILITY_IAM"])
     waiter=cf.get_waiter("stack_%s_complete" % action)
     waiter.wait(StackName=stackname)
-
+    
 if __name__=="__main__":
     try:
         if len(sys.argv) < 2:

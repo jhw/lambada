@@ -1,8 +1,7 @@
 ### short
 
-- check codebuild custom deps vs default/test deps
-
 - SO mail re custom event bus
+- eventbus demo
 
 ### pending
 
@@ -71,6 +70,7 @@
 
 ### done
 
+- check codebuild custom deps vs default/test deps
 - script to search webhook logs
 - fix search build logs
 - lamdemo to import moto
