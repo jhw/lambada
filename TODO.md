@@ -1,6 +1,5 @@
 ### short
 
-- retest
 - tag
 
 ### layman
@@ -9,6 +8,7 @@
 
 ### medium
 
+- link to codebuild process
 - create sample tag via Python
 - eventbridge charts
 
@@ -67,6 +67,7 @@
 
 ### done
 
+- retest
 - re- check resource names
 - custom event bus
   - https://console.aws.amazon.com/support/home?#/case/?caseId=8281695661&displayId=8281695661&language=en
