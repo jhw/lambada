@@ -3,6 +3,10 @@
 - retest
 - tag
 
+### layman
+
+- add webhook function name
+
 ### medium
 
 - create sample tag via Python
@@ -63,6 +67,7 @@
 
 ### done
 
+- re- check resource names
 - custom event bus
   - https://console.aws.amazon.com/support/home?#/case/?caseId=8281695661&displayId=8281695661&language=en
 - check codebuild custom deps vs default/test deps
