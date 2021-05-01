@@ -1,14 +1,15 @@
 ### short
 
-- script to search webhook logs
 - check codebuild custom deps vs default/test deps
 
-### medium
+- SO mail re custom event bus
 
 ### pending
 
 - custom event bus
   - https://console.aws.amazon.com/support/home?#/case/?caseId=8281695661&displayId=8281695661&language=en
+
+### medium
 
 ### long
 
@@ -70,6 +71,7 @@
 
 ### done
 
+- script to search webhook logs
 - fix search build logs
 - lamdemo to import moto
 - remove *.pyc from s3 deployable

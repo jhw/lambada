@@ -125,6 +125,11 @@ Resources:
     Type: AWS::IAM::Role
   WebhookFunction:
     Properties:
+      FunctionName:
+        Fn::Sub:
+          - ${app_name}-lambada-webhook
+          - app_name:
+              Ref: AppName
       Code:
         ZipFile:
           Ref: WebhookLambda
