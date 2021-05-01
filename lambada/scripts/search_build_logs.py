@@ -13,7 +13,8 @@ if __name__=="__main__":
         if not re.search("^\\d+$", window):
             raise RuntimeError("window is invalid")
         window=int(window)
-        loggroupname="/aws/codebuild/%s" % project
+        loggroupname="/aws/codebuild/%s-lambada-ci" % project
+        print (loggroupname)
         starttime=int(1000*(time.time()-window))                
         kwargs={"logGroupName": loggroupname,
                 "startTime": starttime,
@@ -21,7 +22,7 @@ if __name__=="__main__":
         if query not in ["*", ""]:
             kwargs["filterPattern"]=query
         logs=boto3.client("logs")
-        events=logs.filter_log_events(**kwargs)["events"]        
+        events=logs.filter_log_events(**kwargs)["events"]
         for event in sorted(events,
                             key=lambda x: x["timestamp"]):
             print (re.sub("\\r|\\n", "", event["message"]))

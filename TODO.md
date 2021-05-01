@@ -70,6 +70,7 @@
 
 ### done
 
+- fix search build logs
 - lamdemo to import moto
 - remove *.pyc from s3 deployable
 - flatten eventbridge event config
