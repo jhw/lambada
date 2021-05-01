@@ -2,7 +2,6 @@
 
 - script to search webhook logs
 - check codebuild custom deps vs default/test deps
-- lamdemo to import moto
 
 ### medium
 
@@ -71,6 +70,7 @@
 
 ### done
 
+- lamdemo to import moto
 - remove *.pyc from s3 deployable
 - flatten eventbridge event config
 - rename list_auth.py as list_auth_creds.py
