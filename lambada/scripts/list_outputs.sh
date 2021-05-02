@@ -6,8 +6,4 @@ then
     exit
 fi
 
-# https://unix.stackexchange.com/questions/312280/split-string-by-delimiter-and-get-n-th-element
-
-appname="$(cut -d'.' -f1 <<<"$1")"
-
-aws cloudformation describe-stacks --stack-name $appname-lambada-ci --query 'Stacks[0].Outputs' --output table
+aws cloudformation describe-stacks --stack-name $1-lambada-ci --query 'Stacks[0].Outputs' --output table
